@@ -1,6 +1,7 @@
 import isElectron from "is-electron";
 import router from "next/router";
 import React from "react";
+import { useIsElectronMobile } from "../../global-stores/useElectronMobileStore";
 import { useHostStore } from "../../global-stores/useHostStore";
 import {
   SolidCalendar,
@@ -12,6 +13,7 @@ import {
 import { useConn } from "../../shared-hooks/useConn";
 import { useScreenType } from "../../shared-hooks/useScreenType";
 import { MainInnerGrid } from "../../ui/MainGrid";
+import { AccountOverlay } from "../../ui/mobile/AccountOverlay";
 import { ProfileHeader } from "../../ui/mobile/MobileHeader";
 import { MobileNav } from "../../ui/mobile/MobileNav";
 import { ElectronHeader } from "./ElectronHeader";
@@ -52,8 +54,16 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
     { icon: <SolidCalendar />, targetPath: "/scheduled-rooms" },
   ];
 
-  if (plusButtonURL) items.push({ icon: <SolidPlus />, targetPath: plusButtonURL });
-  if (me) items.push({ icon: <SolidUser />, targetPath: `/u/${me.username}/following-online` });
+  if (plusButtonURL) {
+    items.push({ icon: <SolidPlus />, targetPath: plusButtonURL });
+  }
+
+  if (me) {
+    items.push({
+      icon: <SolidUser />,
+      targetPath: `/u/${me.username}/following-online`,
+    });
+  }
 
   let middle = null;
   let prepend = null;
@@ -96,23 +106,36 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
         <>
           {children}
           {floatingRoomInfo}
+          <AccountOverlay />
         </>
       );
   }
 
   return (
     <>
-      <div className="fixed top-0 left-0 w-full z-10">{prepend}</div>
+      <ElectronHeader />
+      <div
+        className={`fixed left-0 w-full z-10`}
+        style={
+          isElectron() && !useHostStore.getState().isLinux
+            ? { top: 30 }
+            : { top: 0 }
+        }
+      >
+        {prepend}
+      </div>
       <div
         className={
           isElectron() && !useHostStore.getState().isLinux
-            ? `default-desktop-layout flex flex-col items-center w-full scrollbar-thin scrollbar-thumb-primary-700`
+            ? `default-desktop-layout flex flex-col items-center w-full scrollbar-thin scrollbar-thumb-primary-700 ${
+                prepend ? "mb-7" : ""
+              }`
             : `flex flex-col items-center w-full scrollbar-thin scrollbar-thumb-primary-700 ${
                 prepend ? "mt-8 mb-7" : ""
               }`
         }
+        style={useIsElectronMobile() ? { marginTop: "38px" } : {}}
       >
-        <ElectronHeader />
         <MainInnerGrid>{middle}</MainInnerGrid>
       </div>
     </>

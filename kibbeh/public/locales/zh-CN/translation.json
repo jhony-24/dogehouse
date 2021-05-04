@@ -173,7 +173,7 @@
       "editProfileModal": {
         "usernameTaken": "用户名已被占用",
         "avatarUrlError": "图片无效",
-        "avatarUrlLabel": "GitHub/Twitter头像URL",
+        "avatarUrlLabel": "Github/Twitter/Discord头像URL",
         "displayNameError": "长度为2到50字符",
         "displayNameLabel": "所显名称",
         "usernameError": "长度为4到15字符，只允许字母或数字或下划线",
@@ -246,7 +246,8 @@
       "reportABug": "反馈Bug",
       "useOldVersion": "使用旧版本",
       "logOut": { "button": "登出", "modalSubtitle": "是否确定登出?" },
-      "debugAudio": { "debugAudio": "调试声音", "stopDebugger": "取消调试" }
+      "debugAudio": { "debugAudio": "调试声音", "stopDebugger": "取消调试" },
+      "downloadApp": "Download App"
     }
   },
   "modules": {

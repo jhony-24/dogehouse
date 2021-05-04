@@ -1,7 +1,12 @@
 /* eslint-disable global-require */
 module.exports = {
   darkMode: "class",
-  purge: ["./src/**/*.tsx", "./public/index.html"],
+  purge: {
+    content: ["./src/**/*.tsx", "./public/index.html"],
+    options: {
+      safelist: ["h-8", "h-11"],
+    },
+  },
   theme: {
     fontFamily: {
       sans: [
@@ -51,6 +56,7 @@ module.exports = {
         hover: "var(--color-accent-hover)",
         disabled: "var(--color-accent-disabled)",
       },
+      black: "#000",
     },
     spacing: {
       0: "0px",
@@ -91,6 +97,7 @@ module.exports = {
       borderRadius: {
         5: "5px",
         8: "8px",
+        20: "20px",
         40: "40px",
       },
       borderColor: {

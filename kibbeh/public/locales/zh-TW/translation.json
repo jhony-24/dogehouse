@@ -193,7 +193,7 @@
       "editProfileModal": {
         "usernameTaken": "用户名已被使用",
         "avatarUrlError": "圖片無效",
-        "avatarUrlLabel": "Github/Twitter 頭像 URL",
+        "avatarUrlLabel": "Github/Twitter/Discord 頭像 URL",
         "displayNameError": "長度為 2 到 50 字元",
         "displayNameLabel": "顯示名稱",
         "usernameError": "長度要在 4 到 15 字元之内，只可輸入英文字母、數字與下劃線 _",
@@ -243,11 +243,9 @@
       "language": "語言",
       "reportABug": "回報漏洞",
       "useOldVersion": "使用舊版本",
-      "logOut": {
-        "button": "登出",
-        "modalSubtitle": "你確定要登出嗎？"
-      },
-      "debugAudio": { "debugAudio": "除錯音頻", "stopDebugger": "停止除錯" }
+      "logOut": { "button": "登出", "modalSubtitle": "你確定要登出嗎？" },
+      "debugAudio": { "debugAudio": "除錯音頻", "stopDebugger": "停止除錯" },
+      "downloadApp": "Download App"
     }
   },
   "modules": {
@@ -267,9 +265,7 @@
       },
       "tommorow": "明天",
       "today": "今天",
-      "deleteModal": {
-        "areYouSure": "你確定要刪除這間已排程的房間嗎？"
-      }
+      "deleteModal": { "areYouSure": "你確定要刪除這間已排程的房間嗎？" }
     },
     "roomChat": {
       "title": "房間",
