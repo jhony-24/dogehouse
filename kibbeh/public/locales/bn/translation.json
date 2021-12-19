@@ -16,7 +16,9 @@
     "copied": "কপি হয়ে গেছে",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "দয়া করে DogeHouse কে অ্যাক্সেস পারমিশন দিন"
+    "requestPermissions": "দয়া করে DogeHouse কে অ্যাক্সেস পারমিশন দিন",
+    "copy": "Copy",
+    "error": "Error"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -34,15 +36,29 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "ব্যান করুন" },
+    "admin": {
+      "ban": "ব্যান করুন",
+      "userStaffandContrib": "ইউজার স্টাফ & অবদান",
+      "staff": "স্টাফ: ",
+      "contributions": "অবদান",
+      "username": "ইউজার নাম",
+      "usrStaff": "ইউজার স্টাফ",
+      "usrContributions": "ইউজারের অবদানগুলো",
+      "reason": "কারণ",
+      "usernamePlaceholder": "ইউজার নাম যার উপর কাজ সম্পাদন করা হবে"
+    },
     "followingOnlineList": {
       "listHeader": "যেসব ইউজারকে আপনি অনুসরণ করেন কিন্তু এখন তারা কোনো প্রাইভেট রুম এ নেই।",
       "currentRoom": "ভেতরে আছেন:",
-      "startPrivateRoom": "তাদের সাথে প্রাইভেট রুম শুরু করুন"
+      "startPrivateRoom": "তাদের সাথে প্রাইভেট রুম শুরু করুন",
+      "title": "মানুষ"
     },
     "followList": {
       "followHim": "অনুসরণ করুন",
-      "followingHim": "অনুসরণ করছেন"
+      "followingHim": "অনুসরণ করছেন",
+      "title": "মানুষ",
+      "followingNone": "কাউকে অনুসরণ করছেন না",
+      "noFollowers": "কোনো অনুসরণকারী নেই"
     },
     "home": {
       "createRoom": "রুম বানান",
@@ -76,7 +92,8 @@
       "soundSettings": "সাউন্ড সেটিংস এ যান",
       "deleteAccount": "অ্যাকাউন্ট ডিলিট করুন",
       "overlaySettings": "ওভারলে সেটিংস এ যান",
-      "couldNotFindUser": "দুঃখিত, আমরা সেই ইউজারকে খুঁজে পাইনি"
+      "couldNotFindUser": "দুঃখিত, আমরা সেই ইউজারকে খুঁজে পাইনি",
+      "privacySettings": "গোপনীয়তা সেটিংস"
     },
     "notFound": {
       "whoopsError": "উফ! এই পেজের বার্তালাপ কেটে গেছে।",
@@ -91,7 +108,11 @@
       "allowAllConfirm": "আপনি কি নিশ্চিত? এটা অনুমতি দেবে সব {{count}} জন অনুরোধ করা ইউজারদের কথা বলতে"
     },
     "searchUser": { "search": "খুঁজুন..." },
-    "soundEffectSettings": { "header": "সাউন্ডস", "title": "সাউন্ড সেটিংস" },
+    "soundEffectSettings": {
+      "header": "সাউন্ডস",
+      "title": "সাউন্ড সেটিংস",
+      "playSound": "সাউন্ড প্লে করুন"
+    },
     "viewUser": {
       "editProfile": "প্রোফাইল এডিট করুন",
       "followsYou": "আপনাকে অনুসরণ করে",
@@ -103,14 +124,31 @@
       "urlCopied": "URL ক্লিপবোর্ডে কপি করা হয়েছে",
       "unfollow": "অনুসরণ বাতিল করুন",
       "about": "সম্বন্ধে",
-      "bot": "বট"
+      "bot": "বট",
+      "profileTabs": {
+        "about": "সম্বন্ধে",
+        "rooms": "রুমগুলো",
+        "scheduled": "পরিকল্পিত",
+        "recorded": "রেকর্ড করেছেন",
+        "clips": "ক্লিপগুলো",
+        "admin": "অ্যাডমিন"
+      },
+      "block": "ব্লক করুন",
+      "unblock": "আনব্লক করুন",
+      "sendDM": "মেসেজ করুন",
+      "aboutSuffix": "",
+      "errors": {
+        "blocked": "This user has blocked you.",
+        "default": "Whoops! We couldn't load this user."
+      }
     },
     "voiceSettings": {
       "header": "ভয়েস সেটিংস",
       "mic": "মাইক:",
       "permissionError": "কোনো মাইক খুঁজে পাওয়া যাইনি, আপনি কোনো মাইক প্লাগ করেননি অথবা এই ওয়েবসাইটকে পারমিশন দেননি।",
       "refresh": "মাইক লিস্ট রিফ্রেশ করুন",
-      "volume": "ভলিউম:"
+      "volume": "ভলিউম:",
+      "title": "ভয়েস সেটিংস"
     },
     "overlaySettings": {
       "input": {
@@ -128,6 +166,19 @@
       "prompt": "নিচের বাটনটিতে ক্লিক করুন ডাউনলোড শুরু করতে",
       "download_now": "ডাউনলোড করুন এখন",
       "download_for": "%platform% (%ext%)-এর জন্য ডাউনলোড করুন"
+    },
+    "privacySettings": {
+      "title": "গোপনীয়তা সেটিংস",
+      "header": "গোপনীয়তা সেটিংস",
+      "whispers": { "label": "ফিসফিস", "on": "অন", "off": "অফ" }
+    },
+    "botEdit": {
+      "yourBots": "Your Bots",
+      "bots": "Bots",
+      "title": "Bot Information",
+      "apiKey": "ApiKey",
+      "regenerate": "Regenerate",
+      "reveal": "Click to reveal ApiKey"
     }
   },
   "components": {
@@ -228,14 +279,28 @@
         "goBackToListener": "শ্রোতাতে ফিরে যান",
         "deleteMessage": "মেসেজটি মুছে ফেলুন",
         "makeRoomCreator": "রুম অ্যাডমিন তৈরি করুন",
-        "unBanFromChat": "চ্যাট থেকে আনব্যান করুন"
+        "unBanFromChat": "চ্যাট থেকে আনব্যান করুন",
+        "banIPFromRoom": "রুম থেকে IP ব্যান করুন"
       },
       "roomSettingsModal": {
         "requirePermission": "কথা বলার জন্য পারমিশন লাগবে",
         "makePublic": "রুমটাকে পাবলিক করুন",
         "makePrivate": "রুমটাকে প্রাইভেট করুন",
         "renamePublic": "পাবলিক রুমের নাম সেট করুন",
-        "renamePrivate": "প্রাইভেট রুমের নাম সেট করুন"
+        "renamePrivate": "প্রাইভেট রুমের নাম সেট করুন",
+        "chatDisabled": "চ্যাট অফ করুন",
+        "chatCooldown": "চ্যাট কুলডাউন (মিলিসেকেন্ড)",
+        "chat": {
+          "label": "চ্যাট",
+          "enabled": "অন করা",
+          "disabled": "অফ করা",
+          "followerOnly": "অনুসরণকারীদের জন্য শুধু"
+        }
+      },
+      "createBotModal": {
+        "usernameTaken": "Username is taken",
+        "subtitle": "Please fill the details below to create your bot",
+        "title": "Create Bot"
       }
     },
     "followingOnline": {
@@ -265,7 +330,17 @@
         "debugAudio": "অডিও ডিবাগ করুন",
         "stopDebugger": "ডিবাগার বন্ধ করুন"
       },
-      "downloadApp": "Download App"
+      "downloadApp": "ডাউনলোড করুন অ্যাপ্লিকেশনটি",
+      "developer": "Developer Settings"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse স্টাফ",
+      "dhContributor": "DogeHouse অবদানকারী"
+    },
+    "messagesDropdown": {
+      "title": "মেসেজগুলো",
+      "showMore": "আরো দেখুন",
+      "noMessages": "কোনো নতুন মেসেজ নেই"
     }
   },
   "modules": {
@@ -300,7 +375,13 @@
       "sendMessage": "মেসেজ পাঠান",
       "whisper": "ফিসফিস",
       "welcomeMessage": "চ্যাট এ স্বাগতম!",
-      "roomDescription": "রুমের বর্ণনা"
+      "roomDescription": "রুমের বর্ণনা",
+      "disabled": "রুম চ্যাট অফ করা হয়েছে",
+      "messageDeletion": {
+        "message": "মেসেজ",
+        "retracted": "ডিলিট করেছেন",
+        "deleted": "ডিলিট করা হয়েছে"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "রকেটে জ্বালানি দেওয়া হচ্ছে",

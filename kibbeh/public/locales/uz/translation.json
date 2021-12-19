@@ -16,7 +16,9 @@
     "copied": "Nusxalandi",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "DogeHouse da kirish ruxsatisiz ishlash kutilmagan xatolarga olib kelishi mumkin"
+    "requestPermissions": "DogeHouse da kirish ruxsatisiz ishlash kutilmagan xatolarga olib kelishi mumkin",
+    "copy": "Copy",
+    "error": "Error"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -34,15 +36,29 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "taqiqlash" },
+    "admin": {
+      "ban": "taqiqlash",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "Yopiq xonada bo'lmagan va siz obuna bo'lgan foydalanuvchilar ro'yxati.",
       "currentRoom": "Hozirgi xona",
-      "startPrivateRoom": "Maxsus xona yarating"
+      "startPrivateRoom": "Maxsus xona yarating",
+      "title": "People"
     },
     "followList": {
       "followHim": "Obuna bo'lish",
-      "followingHim": "Obunachisiz "
+      "followingHim": "Obunachisiz ",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
     },
     "home": {
       "createRoom": "Xona yaratish",
@@ -76,7 +92,8 @@
       "soundSettings": "Tovush sozlamalari",
       "deleteAccount": "Akkauntni o'chirish",
       "overlaySettings": "Qoplama sozlamalari",
-      "couldNotFindUser": "Kechirasiz, biz bu foydalanuvchini topa olmadik"
+      "couldNotFindUser": "Kechirasiz, biz bu foydalanuvchini topa olmadik",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Afsuski! Ushbu sahifa yo'qolgan.",
@@ -91,7 +108,11 @@
       "allowAllConfirm": "Ishonchingiz komilmi? Bu {{count}} foydalanuvchilariga gapirish uchun ruxsat so'rab murojaat qilganlarga gapirishga imkon beradi"
     },
     "searchUser": { "search": "Qidirish..." },
-    "soundEffectSettings": { "header": "Tovushlar", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Tovushlar",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "Profilni tahrirlash",
       "followsYou": "Obunachilaringiz",
@@ -103,14 +124,31 @@
       "urlCopied": "Profil URL nusxasi ko'chirildi",
       "unfollow": "Obunani bekor qilish",
       "about": "About",
-      "bot": "Bot"
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips",
+        "admin": "Admin"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
+      "aboutSuffix": "",
+      "errors": {
+        "blocked": "This user has blocked you.",
+        "default": "Whoops! We couldn't load this user."
+      }
     },
     "voiceSettings": {
       "header": "Ovoz Sozlamalari",
       "mic": "Mikrofon:",
       "permissionError": "Mikrofon topilmadi, ulanmagan yoki brauzerga tegishli ruxsat berilmagan.",
       "refresh": "Mikrofonlar ro'yxatini yangilash",
-      "volume": "Tovush:"
+      "volume": "Tovush:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "header": "Qoplama Sozlamalari",
@@ -126,6 +164,19 @@
       "prompt": "Click on the button below to start download",
       "download_now": "Download Now",
       "download_for": "Download for %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
+    },
+    "botEdit": {
+      "yourBots": "Your Bots",
+      "bots": "Bots",
+      "title": "Bot Information",
+      "apiKey": "ApiKey",
+      "regenerate": "Regenerate",
+      "reveal": "Click to reveal ApiKey"
     }
   },
   "components": {
@@ -200,7 +251,8 @@
         "debugAudio": "Debug Audio",
         "stopDebugger": "Stop Debugger"
       },
-      "downloadApp": "Download App"
+      "downloadApp": "Download App",
+      "developer": "Developer Settings"
     },
     "modals": {
       "createRoomModal": {
@@ -243,14 +295,28 @@
         "goBackToListener": "tinglovchiga aylanish",
         "deleteMessage": "Xatni o'chirish",
         "makeRoomCreator": "xonani admini qilish",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "bu erda gapirish uchun ruxsat talab qilinadi",
         "makePublic": "xonani umumiy qilish",
         "makePrivate": "xonani xususiy qilish",
         "renamePublic": "Umumiy xonani qayta nomlash",
-        "renamePrivate": "Xususiy xonani qayta nomlash"
+        "renamePrivate": "Xususiy xonani qayta nomlash",
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
+      },
+      "createBotModal": {
+        "usernameTaken": "Username is taken",
+        "subtitle": "Please fill the details below to create your bot",
+        "title": "Create Bot"
       }
     },
     "followingOnline": {
@@ -262,6 +328,15 @@
     "upcomingRoomsCard": {
       "upcomingRooms": "Yaqinlashib kelayotgan xonalar",
       "exploreMoreRooms": "Boshqa xonalarni izlanish"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -297,7 +372,13 @@
       "sendMessage": "Xat yuborish",
       "whisper": "Pichirlash",
       "welcomeMessage": "Suhbatga xush kelibsiz!",
-      "roomDescription": "xona tavsifi"
+      "roomDescription": "xona tavsifi",
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "raketaga yonilg'i quyilmoqda",

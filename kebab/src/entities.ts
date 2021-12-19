@@ -14,16 +14,24 @@ export type UserPreview = {
   avatarUrl: string | null;
 };
 
-export type Room = {
-  id: string;
+export type ChatMode = "default" | "disabled" | "follower_only";
+
+export type RoomDetails = {
   name: string;
-  description?: string;
+  chatThrottle: number;
   isPrivate: boolean;
+  description: string;
+};
+
+export type Room = RoomDetails & {
+  id: string;
   numPeopleInside: number;
   voiceServerId: string;
   creatorId: string;
   peoplePreviewList: Array<UserPreview>;
+  autoSpeaker: boolean;
   inserted_at: string;
+  chatMode: ChatMode;
 };
 
 export interface ScheduledRoom {
@@ -40,20 +48,22 @@ export interface ScheduledRoom {
 export type User = {
   youAreFollowing?: boolean;
   username: string;
-  roomPermissions?: unknown;
   online: boolean;
   numFollowing: number;
   numFollowers: number;
   lastOnline: string;
   id: UUID;
   followsYou?: boolean;
-  botOwnerId?: string;
+  botOwnerId?: string | null;
+  contributions: number;
+  staff: boolean;
   displayName: string;
-  currentRoomId?: UUID;
+  currentRoomId?: UUID | null;
   currentRoom: Room;
   bio: string | null;
   avatarUrl: string;
   bannerUrl: string | null;
+  whisperPrivacySetting: "on" | "off";
 };
 
 export type MessageToken<T extends string = string, V = unknown> = {
@@ -66,6 +76,7 @@ export type MentionToken = MessageToken<"mention", string>;
 export type LinkToken = MessageToken<"link", string>;
 export type EmoteToken = MessageToken<"emote", string>;
 export type CodeBlockToken = MessageToken<"block", string>;
+export type EmojiToken = MessageToken<"emoji", string>;
 
 export type Message = {
   id: UUID;
@@ -94,11 +105,8 @@ export type BaseUser = {
   numFollowers: number;
   currentRoom?: Room;
   botOwnerId?: string;
-};
-
-export type PaginatedBaseUsers = {
-  users: BaseUser[];
-  nextCursor: number | null;
+  contributions: number;
+  staff: boolean;
 };
 
 export type RoomPermissions = {
@@ -126,3 +134,23 @@ export type CurrentRoom = Room & {
 };
 
 export type BooleanMap = Record<UUID, boolean>;
+
+export enum Relationship {
+  self = 0,
+  following = 1,
+  follower = 2,
+  mutual = 3,
+  none = 7
+}
+
+export enum RoomRole {
+  speaker = 8,
+  raised_hand = 16,
+  listener = 32
+}
+
+export enum RoomAuth {
+  owner = 8,
+  mod = 16,
+  user = 32
+}

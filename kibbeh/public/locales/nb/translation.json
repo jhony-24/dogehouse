@@ -15,7 +15,9 @@
     "copied": "Kopiert",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Vær oppmerksom på at bruk av DogeHouse uten å gi nettleseren nødvendige tillatelser kan føre til uønskede feil"
+    "requestPermissions": "Vær oppmerksom på at bruk av DogeHouse uten å gi nettleseren nødvendige tillatelser kan føre til uønskede feil",
+    "copy": "Copy",
+    "error": "Error"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -33,13 +35,30 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "utesteng" },
+    "admin": {
+      "ban": "utesteng",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "Liste over brukere som ikke er i et privat rom, og som du følger.",
       "currentRoom": "For tiden i:",
-      "startPrivateRoom": "Start et privat rom med dem"
+      "startPrivateRoom": "Start et privat rom med dem",
+      "title": "People"
     },
-    "followList": { "followHim": "følg", "followingHim": "følger" },
+    "followList": {
+      "followHim": "følg",
+      "followingHim": "følger",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Lag et rom",
       "refresh": "Last inn på nytt",
@@ -72,7 +91,8 @@
       "soundSettings": "Gå til lydinnstillinger",
       "deleteAccount": "Slett konto",
       "overlaySettings": "Gå til overleggsinnstillinger",
-      "couldNotFindUser": "Beklager, vi kunne ikke finne denne brukeren.."
+      "couldNotFindUser": "Beklager, vi kunne ikke finne denne brukeren..",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Oi sann! Denne siden ble tapt i samtalen.",
@@ -87,7 +107,11 @@
       "allowAllConfirm": "Er du sikker? Dette vil tillate alle {{count}} spørrende brukere til å snakke"
     },
     "searchUser": { "search": "søk..." },
-    "soundEffectSettings": { "header": "Lyder", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Lyder",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "Rediger profil",
       "followsYou": "Følger deg",
@@ -99,14 +123,31 @@
       "urlCopied": "URL kopiert til utklippstavlen",
       "unfollow": "Slutt å følge",
       "about": "Om bruker",
-      "bot": "Bot"
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips",
+        "admin": "Admin"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
+      "aboutSuffix": "",
+      "errors": {
+        "blocked": "This user has blocked you.",
+        "default": "Whoops! We couldn't load this user."
+      }
     },
     "voiceSettings": {
       "header": "Taleinnstillinger",
       "mic": "Mikrofon:",
       "permissionError": "Ingen mikrofoner er funnet, du har enten ingen enheter tilgjenngelig, eller så har du ikke gitt tillatelse til å bruke den.",
       "refresh": "Oppdater mikrofon-listen",
-      "volume": "Volum:"
+      "volume": "Volum:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": { "errorMsg": "Ugyldig tittel", "label": "Angi tittel" },
@@ -119,6 +160,19 @@
       "prompt": "Klikk på knappen nedenfor, for å starte nedlastningen",
       "download_now": "Last ned nå",
       "download_for": "Nedlastning for %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
+    },
+    "botEdit": {
+      "yourBots": "Your Bots",
+      "bots": "Bots",
+      "title": "Bot Information",
+      "apiKey": "ApiKey",
+      "regenerate": "Regenerate",
+      "reveal": "Click to reveal ApiKey"
     }
   },
   "components": {
@@ -219,14 +273,28 @@
         "goBackToListener": "Gå tilbake til lytter",
         "deleteMessage": "Slett denne meldingen",
         "makeRoomCreator": "Opprett rom-administrator",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "Krev tillatelse for å snakke",
         "makePublic": "Gjør rommet offentlig",
         "makePrivate": "Gjør rommet privat",
         "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePrivate": "Set private room name",
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
+      },
+      "createBotModal": {
+        "usernameTaken": "Username is taken",
+        "subtitle": "Please fill the details below to create your bot",
+        "title": "Create Bot"
       }
     },
     "followingOnline": {
@@ -256,7 +324,17 @@
         "debugAudio": "Debug Audio",
         "stopDebugger": "Stop Debugger"
       },
-      "downloadApp": "Download App"
+      "downloadApp": "Download App",
+      "developer": "Developer Settings"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -291,7 +369,13 @@
       "sendMessage": "Send en melding",
       "whisper": "Hviske",
       "welcomeMessage": "Velkommen til chatten!",
-      "roomDescription": "Rombeskrivelse"
+      "roomDescription": "Rombeskrivelse",
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Fyller på rakkett med drivstoff",

@@ -16,7 +16,9 @@
     "copied": "Kopioitu",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Huomaa, että käyttämällä DogeHousea ilman joitakin selaimen käyttöoikeuksia voi aiheuttaa ei-toivottuja virheitä"
+    "requestPermissions": "Huomaa, että käyttämällä DogeHousea ilman joitakin selaimen käyttöoikeuksia voi aiheuttaa ei-toivottuja virheitä",
+    "copy": "Kopioi",
+    "error": "Virhe"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -34,13 +36,30 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "Estä" },
+    "admin": {
+      "ban": "Estä",
+      "userStaffandContrib": "Käyttäjän henkilökuntatila ja kontribuutiot",
+      "staff": "Henkilökunta: ",
+      "contributions": "Kontribuutiot",
+      "username": "Käyttäjätunnus",
+      "usrStaff": "Käyttäjän henkilökuntatila",
+      "usrContributions": "Käyttäjän kontribuutiot",
+      "reason": "syy",
+      "usernamePlaceholder": "käyttäjätunnus, johon suoritetaan toiminnot"
+    },
     "followingOnlineList": {
       "listHeader": "Lista seuraamistasi käyttäjistä, jotka eivät ole yksityisessä huoneessa.",
       "currentRoom": "Paikalla:",
-      "startPrivateRoom": "Luo yksityinen huone heidän kanssaan"
+      "startPrivateRoom": "Luo yksityinen huone heidän kanssaan",
+      "title": "Henkilöt"
     },
-    "followList": { "followHim": "Seuraa", "followingHim": "Seurannassa" },
+    "followList": {
+      "followHim": "Seuraa",
+      "followingHim": "Seurannassa",
+      "title": "Henkilöt",
+      "followingNone": "Ei seuraa ketään",
+      "noFollowers": "Ei seuraajia"
+    },
     "home": {
       "createRoom": "Luo huone",
       "refresh": "Päivitä",
@@ -73,7 +92,8 @@
       "soundSettings": "Ääniasetukset",
       "overlaySettings": "Overlay-asetukset",
       "deleteAccount": "Poista tili",
-      "couldNotFindUser": "Käyttäjää ei löytynyt"
+      "couldNotFindUser": "Käyttäjää ei löytynyt",
+      "privacySettings": "Yksityisyysasetukset"
     },
     "notFound": {
       "whoopsError": "Hups! Tämä sivu katosi keskusteluun.",
@@ -88,7 +108,11 @@
       "allowAllConfirm": "Oletko varma? Tämä antaa kaikille {{count}} pyytäville käyttäjille puheoikeuden"
     },
     "searchUser": { "search": "Hae..." },
-    "soundEffectSettings": { "header": "Äänet", "title": "Ääniasetukset" },
+    "soundEffectSettings": {
+      "header": "Äänet",
+      "title": "Ääniasetukset",
+      "playSound": "Toista ääni"
+    },
     "viewUser": {
       "editProfile": "Muokkaa profiilia",
       "followsYou": "Seuraa sinua",
@@ -100,20 +124,37 @@
       "urlCopied": "Osoite kopioitu leikepöydälle",
       "unfollow": "Lopeta seuraaminen",
       "about": "Tietoa käyttäjästä",
-      "bot": "Botti"
+      "bot": "Botti",
+      "profileTabs": {
+        "about": "Tietoa käyttäjästä",
+        "rooms": "Huoneet",
+        "scheduled": "Ajoitetut",
+        "recorded": "Tallennetut",
+        "clips": "Klipit",
+        "admin": "Admin"
+      },
+      "block": "Estä",
+      "unblock": "Poista esto",
+      "sendDM": "Lähetä yksityisviesti",
+      "aboutSuffix": "",
+      "errors": {
+        "blocked": "Tämä käyttäjä esti sinut.",
+        "default": "Hups! Tätä käyttäjää ei voitu ladata."
+      }
     },
     "voiceSettings": {
       "header": "Puheasetukset",
       "mic": "Mikrofoni:",
       "permissionError": "Yhtään mikrofonia ei löytynyt. joko yhtään ei ole kytketty tai et ole antanut sivustolle lupaa käyttää mikrofonia.",
       "refresh": "Päivitä lista",
-      "volume": "Äänenvoimakkuus:"
+      "volume": "Äänenvoimakkuus:",
+      "title": "Puheasetukset"
     },
     "overlaySettings": {
       "header": "Overlay-asetukset",
       "input": {
-        "errorMsg": "Epäkelpo sovelluksen otsikko",
-        "label": "Syötä sovelluksen otsikko"
+        "errorMsg": "Epäkelpo sovelluksen nimi",
+        "label": "Syötä sovelluksen nimi"
       }
     },
     "download": {
@@ -123,6 +164,19 @@
       "prompt": "Aloita lataaminen klikkaamalla alla olevaa painiketta",
       "download_now": "Lataa nyt",
       "download_for": "Lataa %platform%ille (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Yksityisyysasetukset",
+      "header": "Yksityisyysasetukset",
+      "whispers": { "label": "Kuiskaukset", "on": "Käytössä", "off": "Pois käytöstä" }
+    },
+    "botEdit": {
+      "yourBots": "Bottisi",
+      "bots": "Botit",
+      "title": "Botin tiedot",
+      "apiKey": "ApiKey",
+      "regenerate": "Uusi",
+      "reveal": "Paljasta ApiKey klikkaamalla"
     }
   },
   "components": {
@@ -221,14 +275,28 @@
         "goBackToListener": "Palaa kuuntelijaksi",
         "deleteMessage": "Poista viesti",
         "makeRoomCreator": "Ylennä huoneen ylläpitäjäksi",
-        "unBanFromChat": "Poista esto chatista"
+        "unBanFromChat": "Poista esto chatista",
+        "banIPFromRoom": "Estä IP-osoite huoneesta"
       },
       "roomSettingsModal": {
         "requirePermission": "Puhuminen vaatii oikeuden",
         "makePublic": "Tee huoneesta julkinen",
         "makePrivate": "Tee huoneesta yksityinen",
         "renamePublic": "Aseta julkinen huoneen nimi",
-        "renamePrivate": "Aseta yksityinen huoneen nimi"
+        "renamePrivate": "Aseta yksityinen huoneen nimi",
+        "chatDisabled": "Poista chatti käytöstä",
+        "chatCooldown": "Chatin cooldown-aika (millisekunteina)",
+        "chat": {
+          "label": "Chatti",
+          "enabled": "Käytössä",
+          "disabled": "Pois käytöstä",
+          "followerOnly": "Vain seuraajat"
+        }
+      },
+      "createBotModal": {
+        "usernameTaken": "Käyttätunnus varattu",
+        "subtitle": "Luo botti täyttämällä seuraavat kentät",
+        "title": "Luo botti"
       }
     },
     "followingOnline": {
@@ -258,7 +326,17 @@
         "debugAudio": "Testaa äänet",
         "stopDebugger": "Pysäytä debuggeri"
       },
-      "downloadApp": "Download App"
+      "downloadApp": "Lataa sovellus",
+      "developer": "Kehittäjäasetukset"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHousen henkilökunta",
+      "dhContributor": "DogeHouse-avustaja"
+    },
+    "messagesDropdown": {
+      "title": "Viestit",
+      "showMore": "Näytä lisää",
+      "noMessages": "Ei uusia viestejä"
     }
   },
   "modules": {
@@ -293,7 +371,13 @@
       "sendMessage": "Lähetä viesti",
       "whisper": "Kuiskaus",
       "welcomeMessage": "Tervetuloa chattiin!",
-      "roomDescription": "Huoneen kuvaus"
+      "roomDescription": "Huoneen kuvaus",
+      "disabled": "Chatti poistettiin käytöstä",
+      "messageDeletion": {
+        "message": "viesti",
+        "retracted": "peruttu",
+        "deleted": "poistettu"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Tankkaamassa rakettia",

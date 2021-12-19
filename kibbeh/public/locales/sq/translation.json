@@ -16,7 +16,9 @@
     "copied": "u kopjua",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors",
+    "copy": "Copy",
+    "error": "Error"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -34,13 +36,30 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "përjashto" },
+    "admin": {
+      "ban": "përjashto",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "Lista e përdoruesve që nuk janë në një dhomë private dhe ti i ndjek.",
       "currentRoom": "për momentin në:",
-      "startPrivateRoom": "fillo një dhomë private me ta"
+      "startPrivateRoom": "fillo një dhomë private me ta",
+      "title": "People"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": {
+      "followHim": "follow",
+      "followingHim": "following",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Krijo dhomë",
       "refresh": "Refresh",
@@ -73,7 +92,8 @@
       "soundSettings": "shko te cilësimet e tingullit",
       "deleteAccount": "fshije llogarinë",
       "overlaySettings": "go to overlay settings",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Sorry, we could not find that user",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Whoops! Kjo faqja humbi në bisedë.",
@@ -88,7 +108,11 @@
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "kerko..." },
-    "soundEffectSettings": { "header": "Tingujt", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Tingujt",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "redakto profilin",
       "followsYou": "ju ndjek",
@@ -100,14 +124,31 @@
       "urlCopied": "URL copied to clipboard",
       "unfollow": "Unfollow",
       "about": "About",
-      "bot": "Bot"
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips",
+        "admin": "Admin"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
+      "aboutSuffix": "",
+      "errors": {
+        "blocked": "This user has blocked you.",
+        "default": "Whoops! We couldn't load this user."
+      }
     },
     "voiceSettings": {
       "header": "Cilësime e zërit",
       "mic": "mikrofoni:",
       "permissionError": "nuk u gjend asnjë mikrofon, ju ndoshta nuk e keni lidhur ose nuk i keni dhënë leje kesaj faqeje.",
       "refresh": "rifresko listën e mikrofonëve",
-      "volume": "volumi:"
+      "volume": "volumi:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
@@ -120,6 +161,19 @@
       "prompt": "Click on the button below to start download",
       "download_now": "Download Now",
       "download_for": "Download for %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
+    },
+    "botEdit": {
+      "yourBots": "Your Bots",
+      "bots": "Bots",
+      "title": "Bot Information",
+      "apiKey": "ApiKey",
+      "regenerate": "Regenerate",
+      "reveal": "Click to reveal ApiKey"
     }
   },
   "components": {
@@ -217,14 +271,28 @@
         "goBackToListener": "kthenu në dëgjues",
         "deleteMessage": "fshije këtë mesazh",
         "makeRoomCreator": "make room admin",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "kërko leje për të folur",
         "makePublic": "bëje dhomën publike",
         "makePrivate": "bëje dhomën private",
         "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePrivate": "Set private room name",
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
+      },
+      "createBotModal": {
+        "usernameTaken": "Username is taken",
+        "subtitle": "Please fill the details below to create your bot",
+        "title": "Create Bot"
       }
     },
     "followingOnline": {
@@ -254,7 +322,17 @@
         "debugAudio": "Debug Audio",
         "stopDebugger": "Stop Debugger"
       },
-      "downloadApp": "Download App"
+      "downloadApp": "Download App",
+      "developer": "Developer Settings"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -289,7 +367,13 @@
       "sendMessage": "Dërgo një mesazh",
       "whisper": "Përshpërit",
       "welcomeMessage": "Mirë se erdhët në chat!",
-      "roomDescription": "përshkrimi i dhomës"
+      "roomDescription": "përshkrimi i dhomës",
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Fueling rocket",

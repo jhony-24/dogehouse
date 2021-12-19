@@ -16,7 +16,9 @@
     "copied": "kopeeritud",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Pange tähele, et DogeHouse'i käitamine ilma juurdepääsulubadeta võib põhjustada soovimatuid vigu"
+    "requestPermissions": "Pange tähele, et DogeHouse'i käitamine ilma juurdepääsulubadeta võib põhjustada soovimatuid vigu",
+    "copy": "Copy",
+    "error": "Error"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -34,13 +36,30 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "bänni" },
+    "admin": {
+      "ban": "bänni",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "Kasutajad, keda jälgid ja kes ei ole privaatses ruumis",
       "currentRoom": "praegu sees:",
-      "startPrivateRoom": "loo nendega privaatne ruum"
+      "startPrivateRoom": "loo nendega privaatne ruum",
+      "title": "People"
     },
-    "followList": { "followHim": "jälgi", "followingHim": "jälgid" },
+    "followList": {
+      "followHim": "jälgi",
+      "followingHim": "jälgid",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Loo ruum",
       "refresh": "Värskenda",
@@ -73,7 +92,8 @@
       "overlaySettings": "go to overlay settings",
       "soundSettings": "mine helisätetesse",
       "deleteAccount": "kustuta konto",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Sorry, we could not find that user",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Oih! See leht läks vestluses kaduma.",
@@ -88,7 +108,11 @@
       "allowAllConfirm": "Oled sa kindel? See tegevus lubab kõigil {{count}} taotlejal rääkida"
     },
     "searchUser": { "search": "otsi..." },
-    "soundEffectSettings": { "header": "Helid", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Helid",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "muuda profiili",
       "followsYou": "jälgib sind",
@@ -100,14 +124,31 @@
       "urlCopied": "URL copied to clipboard",
       "unfollow": "Unfollow",
       "about": "About",
-      "bot": "Bot"
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips",
+        "admin": "Admin"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
+      "aboutSuffix": "",
+      "errors": {
+        "blocked": "This user has blocked you.",
+        "default": "Whoops! We couldn't load this user."
+      }
     },
     "voiceSettings": {
       "header": "Häälesätted",
       "mic": "mikrofon:",
       "permissionError": "ühtegi mikrofoni ei leitud; mikrofone ei ole ühendatud või veebilehel puudub õigus neid kasutada.",
       "refresh": "värskenda mikrofonide loendit",
-      "volume": "helitugevus:"
+      "volume": "helitugevus:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
@@ -120,6 +161,19 @@
       "prompt": "Click on the button below to start download",
       "download_now": "Download Now",
       "download_for": "Download for %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
+    },
+    "botEdit": {
+      "yourBots": "Your Bots",
+      "bots": "Bots",
+      "title": "Bot Information",
+      "apiKey": "ApiKey",
+      "regenerate": "Regenerate",
+      "reveal": "Click to reveal ApiKey"
     }
   },
   "components": {
@@ -217,14 +271,28 @@
         "goBackToListener": "mine tagasi kuulajatesse",
         "deleteMessage": "kustuta sõnum",
         "makeRoomCreator": "make room admin",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "nõua luba rääkimiseks",
         "makePublic": "tee ruum avalikuks",
         "makePrivate": "tee ruum privaatseks",
         "renamePublic": "Säti avaliku ruumi nimi",
-        "renamePrivate": "Säti privaatse ruumi nimi"
+        "renamePrivate": "Säti privaatse ruumi nimi",
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
+      },
+      "createBotModal": {
+        "usernameTaken": "Username is taken",
+        "subtitle": "Please fill the details below to create your bot",
+        "title": "Create Bot"
       }
     },
     "followingOnline": {
@@ -254,7 +322,17 @@
         "debugAudio": "Debug Audio",
         "stopDebugger": "Stop Debugger"
       },
-      "downloadApp": "Download App"
+      "downloadApp": "Download App",
+      "developer": "Developer Settings"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -289,7 +367,13 @@
       "sendMessage": "Saada sõnum",
       "whisper": "Sosista",
       "welcomeMessage": "Tere tulemast vestlusesse!",
-      "roomDescription": "ruumi kirjeldus"
+      "roomDescription": "ruumi kirjeldus",
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Tankimas raketti",

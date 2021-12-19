@@ -32,8 +32,7 @@ const Page = ({
   onLoadMore: (o: number) => void;
 }) => {
   const conn = useConn();
-  const ref = useRef<HTMLDivElement | null>(null);
-  const { setNode, entry } = useIntersectionObserver(ref);
+  const { setNode, entry } = useIntersectionObserver({});
   const {
     mutateAsync,
     isLoading: followLoading,
@@ -72,8 +71,8 @@ const Page = ({
 
   if (!data || data.users.length === 0) {
     const styles = "text-primary-200 text-center";
-    if (isFollowing) return <div className={styles}>Not following anyone</div>;
-    else return <div className={styles}>No followers</div>;
+    if (isFollowing) return <div className={styles}>{t("pages.followList.followingNone")}</div>;
+    else return <div className={styles}>{t("pages.followList.noFollowers")}</div>;
   }
 
   return (

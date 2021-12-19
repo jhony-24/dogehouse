@@ -65,6 +65,7 @@ module.exports = {
       2: "10px",
       3: "15px",
       4: "20px",
+      4.5: "25px",
       5: "30px",
       5.5: "35px",
       6: "40px",
@@ -111,6 +112,21 @@ module.exports = {
       },
       transitionDuration: {
         400: "400ms",
+      },
+      keyframes: {
+        breathe: {
+          "0%, 100%": {
+            boxShadow: "0 0 20px 2px var(--color-primary-100-translucent)",
+            borderColor: "var(--color-primary-300)",
+          },
+          "50%": {
+            boxShadow: "0 0 20px 2px transparent",
+            borderColor: "var(--color-primary-700)",
+          },
+        },
+      },
+      animation: {
+        "breathe-slow": "breathe 5s infinite ease-in-out",
       },
     },
   },

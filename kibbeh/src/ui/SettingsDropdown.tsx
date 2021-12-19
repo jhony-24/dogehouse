@@ -1,13 +1,13 @@
 import { User } from "@dogehouse/kebab";
+import isElectron from "is-electron";
 import { useRouter } from "next/router";
 import React, { ReactNode, useState } from "react";
 import { useDebugAudioStore } from "../global-stores/useDebugAudio";
 import {
+  DeveloperIcon,
   OutlineGlobe,
   SolidBug,
   SolidCaretRight,
-  SolidMicrophone,
-  SolidTime,
   SolidUser,
   SolidVolume,
 } from "../icons";
@@ -90,10 +90,19 @@ export const SettingsDropdown: React.FC<{
             onClick={() => setDebugAudio(!debugAudio)}
           />
 
+          {!isElectron() ? (
+            <SettingsIcon
+              onClick={() => push("/download")}
+              icon={<SvgSolidDownload />}
+              label={t("components.settingsDropdown.downloadApp")}
+              transition
+            />
+          ) : null}
+
           <SettingsIcon
-            onClick={() => push("/download")}
-            icon={<SvgSolidDownload />}
-            label={t("components.settingsDropdown.downloadApp")}
+            onClick={() => push("/developer/bots")}
+            icon={<DeveloperIcon />}
+            label={t("components.settingsDropdown.developer")}
             transition
           />
 

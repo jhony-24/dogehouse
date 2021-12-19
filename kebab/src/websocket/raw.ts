@@ -9,6 +9,10 @@ const apiUrl = "wss://api.dogehouse.tv/socket";
 const connectionTimeout = 15000;
 
 export type Token = string;
+
+/**
+ * @deprecated
+ */
 export type FetchID = UUID;
 export type Ref = UUID;
 export type Opcode = string;
@@ -16,12 +20,12 @@ export type Logger = (
   direction: "in" | "out",
   opcode: Opcode,
   data?: unknown,
-  fetchId?: FetchID,
+  fetchId?: Ref,
   raw?: string
 ) => void;
 export type ListenerHandler<Data = unknown> = (
   data: Data,
-  fetchId?: FetchID
+  fetchId?: Ref
 ) => void;
 export type Listener<Data = unknown> = {
   opcode: Opcode;
@@ -33,6 +37,10 @@ export type Listener<Data = unknown> = {
  */
 export type Connection = {
   close: () => void;
+
+  /**
+   * @deprecated
+   */
   once: <Data = unknown>(
     opcode: Opcode,
     handler: ListenerHandler<Data>
@@ -43,8 +51,16 @@ export type Connection = {
   ) => () => void;
   user: User;
   initialCurrentRoomId?: string;
+
+  /**
+   * @deprecated
+   */
   send: (opcode: Opcode, data: unknown, fetchId?: FetchID) => void;
   sendCast: (opcode: Opcode, data: unknown, ref?: Ref) => void;
+
+  /**
+   * @deprecated
+   */
   fetch: (
     opcode: Opcode,
     data: unknown,
@@ -62,17 +78,17 @@ export type Connection = {
 // when ws tries to reconnect it should use current tokens not the ones it initializes with
 /**
  * Creates a Connection object
- * @param token - Your dogehouse token
- * @param refreshToken - Your dogehouse refresh token
- * @returns Connection object
+ * @param {Token} token Your dogehouse token
+ * @param {Token} refreshToken Your dogehouse refresh token
+ * @returns {Promise<Connection>} Connection object
  */
 export const connect = (
   token: Token,
   refreshToken: Token,
   {
-    logger = () => { },
-    onConnectionTaken = () => { },
-    onClearTokens = () => { },
+    logger = () => {},
+    onConnectionTaken = () => {},
+    onClearTokens = () => {},
     url = apiUrl,
     fetchTimeout,
     getAuthOptions,
@@ -106,8 +122,9 @@ export const connect = (
       // and you get logged out
       if (socket.readyState !== socket.OPEN) return;
 
-      const raw = `{"v":"0.2.0", "op":"${opcode}","p":${JSON.stringify(data)}${ref ? `,"ref":"${ref}"` : ""
-        }}`;
+      const raw = `{"v":"0.2.0", "op":"${opcode}","p":${JSON.stringify(data)}${
+        ref ? `,"ref":"${ref}"` : ""
+      }}`;
 
       socket.send(raw);
       logger("out", opcode, data, ref, raw);

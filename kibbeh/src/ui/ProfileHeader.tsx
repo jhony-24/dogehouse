@@ -1,4 +1,4 @@
-import React, { ReactChild, useState } from "react";
+import React, { ReactChild, useEffect, useState } from "react";
 import { ProfileHeaderWrapper } from "./ProfileHeaderWrapper";
 import { Button } from "./Button";
 import { UserBadge } from "./UserBadge";
@@ -15,6 +15,7 @@ import { useTypeSafeTranslation } from "../shared-hooks/useTypeSafeTranslation";
 import { useTypeSafeUpdateQuery } from "../shared-hooks/useTypeSafeUpdateQuery";
 import { EditProfileModal } from "../modules/user/EditProfileModal";
 import { usePreloadPush } from "../shared-components/ApiPreloadLink";
+import { badge, Badges } from "./UserSummaryCard";
 
 export interface ProfileHeaderProps {
   displayName: string;
@@ -24,6 +25,7 @@ export interface ProfileHeaderProps {
   canDM?: boolean;
   isCurrentUser?: boolean;
   user: UserWithFollowInfo;
+  badges?: badge[];
 }
 
 export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
@@ -34,6 +36,7 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
   canDM,
   isCurrentUser,
   pfp = "https://dogehouse.tv/favicon.ico",
+  badges = [],
 }) => {
   const { mutateAsync, isLoading: followLoading } = useTypeSafeMutation(
     "follow"
@@ -80,33 +83,28 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
         />
       </div>
       <div className="flex flex-col w-3/6 font-sans">
-        <h4 className="text-primary-100 font-bold truncate">{displayName}</h4>
+        <h4 className="text-primary-100 font-bold truncate">
+          {displayName || username}
+        </h4>
         <div className="flex flex-row items-center">
           <p
             className="text-primary-300 mr-2"
             data-testid="profile-info-username"
           >{`@${username}`}</p>
-          {user.followsYou ? (
+
+          {user.followsYou && (
             <UserBadge color="grey" variant="primary-700">
               {t("pages.viewUser.followsYou")}
             </UserBadge>
-          ) : (
-            ""
           )}
         </div>
-        <div className="mt-2">
-          {user.botOwnerId ? (
-            <UserBadge color="white" variant="primary">
-              {t("pages.viewUser.bot")}
-            </UserBadge>
-          ) : (
-            ""
-          )}
+        <div className="mt-2 flex">
+          <Badges badges={badges} />
           {children}
         </div>
       </div>
 
-      <div className="w-3/6 ">
+      <div className="sm:w-3/6">
         <div className="flex flex-row justify-end content-end gap-2">
           {!isCurrentUser && (
             <Button
@@ -137,7 +135,9 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
                 }
               }}
             >
-              {user.iBlockedThem ? "unblock" : "block"}
+              {user.iBlockedThem
+                ? t("pages.viewUser.unblock")
+                : t("pages.viewUser.block")}
             </Button>
           )}
           {!isCurrentUser && (
@@ -146,7 +146,7 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
               onClick={async () => {
                 await mutateAsync([user.id, !user.youAreFollowing]);
                 updater(["getUserProfile", username], (u) =>
-                  !u
+                  !u || "error" in u
                     ? u
                     : {
                         ...u,
@@ -179,7 +179,7 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
           )}
           {canDM ? (
             <Button size="small" color="secondary" icon={<SolidMessages />}>
-              Send DM
+              {t("pages.viewUser.sendDM")}
             </Button>
           ) : (
             ""

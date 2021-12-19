@@ -15,7 +15,9 @@
     "copied": "कॉपी हो गया",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "कृपया ध्यान दें कि एक्सेसिबिलिटी परमिशन के बिना दोजेहाउस चलाना अवांछित त्रुटियों का कारण हो सकता है"
+    "requestPermissions": "कृपया ध्यान दें कि एक्सेसिबिलिटी परमिशन के बिना दोजेहाउस चलाना अवांछित त्रुटियों का कारण हो सकता है",
+    "copy": "Copy",
+    "error": "Error"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -33,13 +35,30 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "ban" },
+    "admin": {
+      "ban": "ban",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "उन उपयोगकर्ताओं की सूची जो एक प्राइवेट रूम में नहीं हैं और आप उन्हें फॉलो करते हैं।",
       "currentRoom": "वर्तमान में:",
-      "startPrivateRoom": "उनके साथ एक प्राइवेट रूम शुरू करें"
+      "startPrivateRoom": "उनके साथ एक प्राइवेट रूम शुरू करें",
+      "title": "People"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": {
+      "followHim": "follow",
+      "followingHim": "following",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "रूम बनाये",
       "refresh": "रिफ्रेश",
@@ -72,7 +91,8 @@
       "soundSettings": "साउंड सेटिंग में जाएं",
       "deleteAccount": "खाता हटाएं",
       "overlaySettings": "ओवरले सेटिंग्स पर जाएं",
-      "couldNotFindUser": "क्षमा करें, हमें वह उपयोगकर्ता नहीं मिला"
+      "couldNotFindUser": "क्षमा करें, हमें वह उपयोगकर्ता नहीं मिला",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "वूप्स! यह पेज बातचीत में खो गया.",
@@ -87,7 +107,11 @@
       "allowAllConfirm": "अरे  यू  सूरे ? थिस  विल अल्लोव आल {{count}} रिक्वेस्टिंग  उसेर्स  तो  स्पीक "
     },
     "searchUser": { "search": "खोज करे..." },
-    "soundEffectSettings": { "header": "आवाज़", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "आवाज़",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "edit profile",
       "followsYou": "follows you",
@@ -99,14 +123,31 @@
       "urlCopied": "URL copied to clipboard",
       "unfollow": "Unfollow",
       "about": "About",
-      "bot": "Bot"
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips",
+        "admin": "Admin"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
+      "aboutSuffix": "",
+      "errors": {
+        "blocked": "This user has blocked you.",
+        "default": "Whoops! We couldn't load this user."
+      }
     },
     "voiceSettings": {
       "header": "आवाज़ की सेटिंग्स",
       "mic": "mic:",
       "permissionError": "कोई माइक नहीं मिला, आपने या तो इस वेबसाइट को अनुमति नहीं दी है या माइक प्लग इन नहीं किया है।",
       "refresh": "रिफ्रेश माइक लिस्ट",
-      "volume": "volume:"
+      "volume": "volume:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
@@ -119,6 +160,19 @@
       "prompt": "Click on the button below to start download",
       "download_now": "Download Now",
       "download_for": "Download for %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
+    },
+    "botEdit": {
+      "yourBots": "Your Bots",
+      "bots": "Bots",
+      "title": "Bot Information",
+      "apiKey": "ApiKey",
+      "regenerate": "Regenerate",
+      "reveal": "Click to reveal ApiKey"
     }
   },
   "components": {
@@ -216,14 +270,28 @@
         "goBackToListener": "go back to listener",
         "deleteMessage": "इस मैसेज को हटा दें",
         "makeRoomCreator": "make room admin",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "बोलने की अनुमति की आवश्यकता है",
         "makePublic": "रूम को सार्वजनिक करें",
         "makePrivate": "रूम को प्राइवेट करें!",
         "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePrivate": "Set private room name",
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
+      },
+      "createBotModal": {
+        "usernameTaken": "Username is taken",
+        "subtitle": "Please fill the details below to create your bot",
+        "title": "Create Bot"
       }
     },
     "followingOnline": {
@@ -253,7 +321,17 @@
         "debugAudio": "Debug Audio",
         "stopDebugger": "Stop Debugger"
       },
-      "downloadApp": "Download App"
+      "downloadApp": "Download App",
+      "developer": "Developer Settings"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -288,7 +366,13 @@
       "sendMessage": "एक मैसेज भेजो",
       "whisper": "व्हिस्पर ",
       "welcomeMessage": "चैट में आपका स्वागत है!",
-      "roomDescription": "रूम के बारे में"
+      "roomDescription": "रूम के बारे में",
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Fueling rocket",

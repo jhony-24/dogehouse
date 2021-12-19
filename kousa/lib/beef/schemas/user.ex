@@ -11,7 +11,6 @@ defmodule Beef.Schemas.User do
 
     # TODO: Make this a separate Schema that sees the same table.
 
-    @derive {Poison.Encoder, only: [:id, :displayName, :numFollowers, :avatarUrl]}
     @derive {Jason.Encoder, only: [:id, :displayName, :numFollowers, :avatarUrl]}
 
     @primary_key false
@@ -26,7 +25,7 @@ defmodule Beef.Schemas.User do
   end
 
   @timestamps_opts [type: :utc_datetime_usec]
-
+  @type whisperPrivacySetting :: :on | :off
   @type t :: %__MODULE__{
           id: Ecto.UUID.t(),
           twitterId: String.t(),
@@ -39,6 +38,7 @@ defmodule Beef.Schemas.User do
           displayName: String.t(),
           avatarUrl: String.t(),
           bannerUrl: String.t(),
+          whisperPrivacySetting: whisperPrivacySetting(),
           bio: String.t(),
           reasonForBan: String.t(),
           ip: nil | String.t(),
@@ -47,6 +47,8 @@ defmodule Beef.Schemas.User do
           numFollowers: integer(),
           hasLoggedIn: boolean(),
           online: boolean(),
+          contributions: integer(),
+          staff: boolean(),
           lastOnline: DateTime.t(),
           youAreFollowing: nil | boolean(),
           followsYou: nil | boolean(),
@@ -55,10 +57,6 @@ defmodule Beef.Schemas.User do
           currentRoomId: Ecto.UUID.t(),
           currentRoom: Room.t() | Ecto.Association.NotLoaded.t()
         }
-
-  @derive {Poison.Encoder, only: ~w(id username avatarUrl bannerUrl bio online
-             lastOnline currentRoomId displayName numFollowing numFollowers
-             currentRoom youAreFollowing followsYou botOwnerId roomPermissions iBlockedThem)a}
 
   @primary_key {:id, :binary_id, []}
   schema "users" do
@@ -79,6 +77,8 @@ defmodule Beef.Schemas.User do
     field(:numFollowers, :integer)
     field(:hasLoggedIn, :boolean)
     field(:online, :boolean)
+    field(:contributions, :integer)
+    field(:staff, :boolean)
     field(:lastOnline, :utc_datetime_usec)
     field(:youAreFollowing, :boolean, virtual: true)
     field(:followsYou, :boolean, virtual: true)
@@ -89,6 +89,7 @@ defmodule Beef.Schemas.User do
     field(:ip, :string, null: true)
     field(:theyBlockedMe, :boolean, virtual: true)
     field(:iBlockedThem, :boolean, virtual: true)
+    field(:whisperPrivacySetting, Ecto.Enum, values: [:on, :off])
 
     belongs_to(:botOwner, Beef.Schemas.User, foreign_key: :botOwnerId, type: :binary_id)
     belongs_to(:currentRoom, Room, foreign_key: :currentRoomId, type: :binary_id)
@@ -115,6 +116,21 @@ defmodule Beef.Schemas.User do
     |> validate_required([:username, :githubId, :avatarUrl, :bannerUrl])
   end
 
+  def api_key_changeset(user, attrs) do
+    user
+    |> cast(attrs, [
+      :apiKey
+    ])
+  end
+
+  def admin_update_changeset(user, attrs) do
+    user
+    |> cast(attrs, [
+      :staff,
+      :contributions
+    ])
+  end
+
   def edit_changeset(user, attrs) do
     user
     |> cast(attrs, [
@@ -138,13 +154,13 @@ defmodule Beef.Schemas.User do
     )
     |> validate_format(
       :bannerUrl,
-      ~r/^https?:\/\/(www\.|)(pbs.twimg.com\/profile_banners\/(.+)\/(.+)\/(.+)(?:\.(jpg|png|jpeg|webp))?|avatars\.githubusercontent\.com\/u\/)/
+      ~r/^https?:\/\/(www\.|)(pbs.twimg.com\/profile_banners\/(.+)\/(.+)(?:\.(jpg|png|jpeg|webp))?|avatars\.githubusercontent\.com\/u\/)/
     )
     |> unique_constraint(:username)
   end
 
   defimpl Jason.Encoder do
-    @fields ~w(id username avatarUrl bannerUrl bio online
+    @fields ~w(id whisperPrivacySetting username avatarUrl bannerUrl bio online contributions staff
   lastOnline currentRoomId currentRoom displayName numFollowing numFollowers
   youAreFollowing followsYou botOwnerId roomPermissions iBlockedThem)a
 

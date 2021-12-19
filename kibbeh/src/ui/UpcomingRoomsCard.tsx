@@ -15,9 +15,9 @@ const FormattedDate: React.FC<FormattedDateProps> = ({ scheduledFor }) => {
   const { t } = useTypeSafeTranslation();
   let text = "";
   if (isToday(scheduledFor)) {
-    text = format(scheduledFor, `K:mm a`);
+    text = format(scheduledFor, `h:mm a`);
   } else {
-    text = format(scheduledFor, `do MMM, K:mm a`);
+    text = format(scheduledFor, `do MMM, h:mm a`);
   }
   return <>{text}</>;
 };
@@ -62,9 +62,8 @@ export const ScheduledRoomSummaryCard: React.FC<ScheduledRoomSummaryCardProps> =
   return (
     <button
       onClick={onClick}
-      className={`px-4 py-2 w-full bg-primary-800 flex flex-col gap-2 border-b border-primary-600 cursor-pointer last:border-b-0 ${
-        transition ? `transition duration-200 ease-in-out` : ``
-      } hover:bg-primary-700 z-0`}
+      className={`px-4 py-2 w-full bg-primary-800 flex flex-col gap-2 border-b border-primary-600 cursor-pointer last:border-b-0 ${transition ? `transition duration-200 ease-in-out` : ``
+        } hover:bg-primary-700 z-0`}
     >
       <div className="flex text-accent text-sm uppercase">
         <FormattedDate scheduledFor={scheduledFor} />
@@ -87,6 +86,7 @@ export const UpcomingRoomsCard: React.FC<UpcomingRoomsCardProps> = ({
           {t("components.upcomingRoomsCard.upcomingRooms")}
         </h4>
         <BoxedIcon
+          data-testid="create-scheduled-room"
           onClick={onCreateScheduledRoom}
           style={{ height: "26px", width: "26px" }}
           transition
@@ -101,7 +101,10 @@ export const UpcomingRoomsCard: React.FC<UpcomingRoomsCardProps> = ({
       </div>
 
       <Link href="/scheduled-rooms">
-        <a className="px-4 py-3 text-primary-100 font-bold bg-primary-700">
+        <a
+          className="px-4 py-3 text-primary-100 font-bold bg-primary-700"
+          data-testid="view-scheduled-rooms"
+        >
           {t("components.upcomingRoomsCard.exploreMoreRooms")}
         </a>
       </Link>

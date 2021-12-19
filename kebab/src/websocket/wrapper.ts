@@ -11,6 +11,7 @@ import {
   UserWithFollowInfo,
   UUID,
 } from "..";
+import { ChatMode } from "../entities";
 import { Connection } from "./raw";
 import {
   GetScheduledRoomsResponse,
@@ -31,13 +32,15 @@ type Handler<Data> = (data: Data) => void;
  * A wrapper object created using `wrap()` that can be used to make websocket calls using functions
  */
 export type Wrapper = ReturnType<typeof wrap>;
+
 /**
  * Creates a wrapper object that allows you to make websocket calls using functions
- * @param connection - reference to the websocket connection
- * @returns Wrapper object
+ * @param {Connection} connection reference to the websocket connection
+ * @returns  {connection} Wrapper object
  */
 export const wrap = (connection: Connection) => ({
   connection,
+
   /**
    * Allows you to subscribe to various pre-defined websocket events
    */
@@ -55,23 +58,33 @@ export const wrap = (connection: Connection) => ({
     handRaised: (handler: Handler<{ userId: UUID }>) =>
       connection.addListener("hand_raised", handler),
     speakerAdded: (
-      handler: Handler<{ userId: UUID; muteMap: BooleanMap; deafMap: BooleanMap }>
+      handler: Handler<{
+        userId: UUID;
+        muteMap: BooleanMap;
+        deafMap: BooleanMap;
+      }>
     ) => connection.addListener("speaker_added", handler),
     speakerRemoved: (
-      handler: Handler<{ userId: UUID; muteMap: BooleanMap; deafMap: BooleanMap }>
+      handler: Handler<{
+        userId: UUID;
+        muteMap: BooleanMap;
+        deafMap: BooleanMap;
+      }>
     ) => connection.addListener("speaker_removed", handler),
   },
+
   /**
    * Allows you to call functions that return information about the ws state
    */
 
   query: {
-    search: (query: string): Promise<{
-      items: Array<User | Room>,
-      rooms: Room[],
-      users: User[]
-    }> =>
-      connection.fetch("search", { query }),
+    search: (
+      query: string
+    ): Promise<{
+      items: Array<User | Room>;
+      rooms: Room[];
+      users: User[];
+    }> => connection.fetch("search", { query }),
     getMyScheduledRoomsAboutToStart: (
       roomId: string
     ): Promise<{ scheduledRooms: ScheduledRoom[] }> =>
@@ -115,11 +128,13 @@ export const wrap = (connection: Connection) => ({
       connection.fetch("get_user_profile", { userId: idOrUsername }),
     getScheduledRooms: (
       cursor = "",
-      getOnlyMyScheduledRooms = false
+      range: "all" | "upcoming" = "all",
+      userId: string | undefined,
     ): Promise<GetScheduledRoomsResponse> =>
-      connection.fetch("get_scheduled_rooms", {
+      connection.sendCall("room:get_scheduled", {
         cursor,
-        getOnlyMyScheduledRooms,
+        range,
+        userId,
       }),
     getRoomUsers: (): Promise<GetRoomUsersResponse> =>
       connection.fetch(
@@ -128,10 +143,13 @@ export const wrap = (connection: Connection) => ({
         "get_current_room_users_done"
       ),
   },
+
   /**
    * Allows you to call functions that mutate the ws state
    */
   mutation: {
+    userUpdate: (data: Partial<User>): Promise<void> =>
+      connection.sendCall("user:update", data),
     userBlock: (userId: string): Promise<void> =>
       connection.sendCall("user:block", { userId }),
     userUnblock: (userId: string): Promise<void> =>
@@ -139,8 +157,10 @@ export const wrap = (connection: Connection) => ({
     roomUpdate: (data: {
       name?: string;
       privacy?: string;
+      chatThrottle?: number;
       description?: string;
       autoSpeaker?: boolean;
+      chatMode?: ChatMode;
     }): Promise<void> => connection.sendCall("room:update", data),
     roomBan: (userId: string, shouldBanIp?: boolean): Promise<void> =>
       connection.sendCast("room:ban", { userId, shouldBanIp }),
@@ -148,6 +168,17 @@ export const wrap = (connection: Connection) => ({
       connection.sendCall("room:deafen", { deafened: isDeafened }),
     userCreateBot: (username: string): Promise<CreateBotResponse> =>
       connection.sendCall(`user:create_bot`, { username }),
+    userAdminUpdate: (
+      id: UUID,
+      user: {
+        staff?: boolean;
+        contributions?: number;
+      }
+    ) =>
+      connection.sendCall(`user:admin_update`, {
+        id,
+        user,
+      }),
     ban: (username: string, reason: string) =>
       connection.send(`ban`, { username, reason }),
     deleteScheduledRoom: (id: string): Promise =>

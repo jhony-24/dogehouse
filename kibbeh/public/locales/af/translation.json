@@ -16,7 +16,9 @@
     "copied": "gekopieër",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Please give DogeHouse Accessibility permessions"
+    "requestPermissions": "Please give DogeHouse Accessibility permessions",
+    "copy": "Copy",
+    "error": "Error"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -34,13 +36,30 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "verbod" },
+    "admin": {
+      "ban": "verbod",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "Lys van gebruikers wie nie in private kamers is nie, en vir wie jy volg",
       "currentRoom": "tans in:",
-      "startPrivateRoom": "Begin 'n private kamer saam met hulle"
+      "startPrivateRoom": "Begin 'n private kamer saam met hulle",
+      "title": "People"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": {
+      "followHim": "follow",
+      "followingHim": "following",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Skep Kamer",
       "refresh": "Refresh",
@@ -73,7 +92,8 @@
       "soundSettings": "gaan na klank instellings",
       "deleteAccount": "verwyder rekening",
       "overlaySettings": "go to overlay settings",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Sorry, we could not find that user",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Oeps! Hierdie bladsy het verlore geraak in gesprek.",
@@ -88,7 +108,11 @@
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "soek..." },
-    "soundEffectSettings": { "header": "Klanke", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Klanke",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "wysig profiel",
       "followsYou": "volg jou",
@@ -100,14 +124,31 @@
       "urlCopied": "URL copied to clipboard",
       "unfollow": "Unfollow",
       "about": "About",
-      "bot": "Bot"
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips",
+        "admin": "Admin"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
+      "aboutSuffix": "",
+      "errors": {
+        "blocked": "This user has blocked you.",
+        "default": "Whoops! We couldn't load this user."
+      }
     },
     "voiceSettings": {
       "header": "Stem instellings",
       "mic": "mikrofoon:",
       "permissionError": "Geen mikrofone gevind nie. Jy het óf geen ingeprop nie, of jy het nie vir hierdie webtuiste toestemming gegee nie.",
       "refresh": "herlaai mikrofoon lys",
-      "volume": "volume:"
+      "volume": "volume:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
@@ -122,6 +163,19 @@
       "prompt": "Click on the button below to start download",
       "download_now": "Download Now",
       "download_for": "Download for %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
+    },
+    "botEdit": {
+      "yourBots": "Your Bots",
+      "bots": "Bots",
+      "title": "Bot Information",
+      "apiKey": "ApiKey",
+      "regenerate": "Regenerate",
+      "reveal": "Click to reveal ApiKey"
     }
   },
   "components": {
@@ -219,14 +273,28 @@
         "goBackToListener": "gaan terug na luisteraar",
         "deleteMessage": "verwyder hierdie boodskap",
         "makeRoomCreator": "make room admin",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "benodig toestemming om te praat",
         "makePublic": "maak kamer publiek",
         "makePrivate": "maak kamer privaat",
         "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePrivate": "Set private room name",
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
+      },
+      "createBotModal": {
+        "usernameTaken": "Username is taken",
+        "subtitle": "Please fill the details below to create your bot",
+        "title": "Create Bot"
       }
     },
     "followingOnline": {
@@ -256,7 +324,17 @@
         "debugAudio": "Debug Audio",
         "stopDebugger": "Stop Debugger"
       },
-      "downloadApp": "Download App"
+      "downloadApp": "Download App",
+      "developer": "Developer Settings"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -291,7 +369,13 @@
       "sendMessage": "Stuur 'n boodskap",
       "whisper": "Fluister",
       "welcomeMessage": "Welkom by die gesprek!",
-      "roomDescription": "Kamerbeskrywing"
+      "roomDescription": "Kamerbeskrywing",
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Fueling rocket",

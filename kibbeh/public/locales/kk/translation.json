@@ -16,7 +16,9 @@
     "copied": "Көшірілді",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Қол жетімділік рұқсатынсыз DogeHouseты қолдану керексіз қателіктер тудыруы мүмкін екенін ескеріңіз"
+    "requestPermissions": "Қол жетімділік рұқсатынсыз DogeHouseты қолдану керексіз қателіктер тудыруы мүмкін екенін ескеріңіз",
+    "copy": "Copy",
+    "error": "Error"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -34,13 +36,30 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "бан" },
+    "admin": {
+      "ban": "бан",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "Жабық бөлмеде емес сіз жазылған қолданушылар тізімі",
       "currentRoom": "қазір :",
-      "startPrivateRoom": "Олармен жабық бөлме ашу"
+      "startPrivateRoom": "Олармен жабық бөлме ашу",
+      "title": "People"
     },
-    "followList": { "followHim": "жазылу", "followingHim": "Сіз жазылдыңыз" },
+    "followList": {
+      "followHim": "жазылу",
+      "followingHim": "Сіз жазылдыңыз",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Бөлме ашу",
       "refresh": "Жаңарту",
@@ -73,7 +92,8 @@
       "soundSettings": "дыбыс баптауларына өту",
       "deleteAccount": "аккаунтты жою",
       "overlaySettings": "Қабаттасу (overlay) баптауларына өту",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Sorry, we could not find that user",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Қап! Бұл бет сөйлесіп жатқанда жойылып кетіпті.",
@@ -88,7 +108,11 @@
       "allowAllConfirm": "Бұл барлық рұқсат сұраған {{count}} қолданушыға, сөйлеуге мүмкіндік береді.Сіз сенімдісіз бе?"
     },
     "searchUser": { "search": "іздеу..." },
-    "soundEffectSettings": { "header": "дыбыстар", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "дыбыстар",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "Профайлды өңдеу",
       "followsYou": "сізге жазылған",
@@ -100,14 +124,31 @@
       "urlCopied": "Сілтеме көшірілді",
       "unfollow": "Жазылуды доғару",
       "about": "About",
-      "bot": "Bot"
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips",
+        "admin": "Admin"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
+      "aboutSuffix": "",
+      "errors": {
+        "blocked": "This user has blocked you.",
+        "default": "Whoops! We couldn't load this user."
+      }
     },
     "voiceSettings": {
       "header": "Дауыс баптамалары",
       "mic": "микрофон:",
       "permissionError": "микрофоныз таба алмадық, ол қосылмаған немесе браузеріңізге қажетті рұқсат берілмеген.",
       "refresh": "микрофондар тізімін жаңарту",
-      "volume": "Қаттылығы:"
+      "volume": "Қаттылығы:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": {
@@ -123,6 +164,19 @@
       "prompt": "Click on the button below to start download",
       "download_now": "Download Now",
       "download_for": "Download for %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
+    },
+    "botEdit": {
+      "yourBots": "Your Bots",
+      "bots": "Bots",
+      "title": "Bot Information",
+      "apiKey": "ApiKey",
+      "regenerate": "Regenerate",
+      "reveal": "Click to reveal ApiKey"
     }
   },
   "components": {
@@ -221,14 +275,28 @@
         "goBackToListener": "тыңдарман болу",
         "deleteMessage": "осы хабарламаны жою",
         "makeRoomCreator": "бөлме админы қылдыру",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Unban from Chat",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "Мұнда сөйлеу үшін рұқсат алу қажет",
         "makePublic": "бөлмені жариялы ету",
         "makePrivate": "бөлмені жеке қылдыру",
         "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePrivate": "Set private room name",
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
+      },
+      "createBotModal": {
+        "usernameTaken": "Username is taken",
+        "subtitle": "Please fill the details below to create your bot",
+        "title": "Create Bot"
       }
     },
     "followingOnline": {
@@ -258,7 +326,17 @@
         "debugAudio": "Debug Audio",
         "stopDebugger": "Stop Debugger"
       },
-      "downloadApp": "Download App"
+      "downloadApp": "Download App",
+      "developer": "Developer Settings"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -293,7 +371,13 @@
       "sendMessage": "хабарламаны жіберу",
       "whisper": "Сыбырлау",
       "welcomeMessage": "Чатқа қош келдіңіз!",
-      "roomDescription": "Бөлме сипаттамасы"
+      "roomDescription": "Бөлме сипаттамасы",
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Зымыранға жанармай құйылуда",

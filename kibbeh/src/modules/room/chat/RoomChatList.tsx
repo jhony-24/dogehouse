@@ -5,12 +5,13 @@ import { useVirtual, VirtualItem } from "react-virtual";
 import { useConn } from "../../../shared-hooks/useConn";
 import { useCurrentRoomInfo } from "../../../shared-hooks/useCurrentRoomInfo";
 import { useTypeSafeTranslation } from "../../../shared-hooks/useTypeSafeTranslation";
-import { StaticTwemoji } from "../../../ui/Twemoji";
+import { ParseTextToTwemoji, StaticTwemoji } from "../../../ui/Twemoji";
 import { UserPreviewModalContext } from "../UserPreviewModalProvider";
 import { Emote } from "./Emote";
 import { EmoteKeys } from "./EmoteData";
 import { useRoomChatMentionStore } from "./useRoomChatMentionStore";
 import { useRoomChatStore } from "./useRoomChatStore";
+import { useResize } from "../useResize";
 
 interface ChatListProps {
   room: Room;
@@ -43,12 +44,12 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room, userMap }) => {
       chatListRef.current?.scrollTo(0, chatListRef.current.scrollHeight);
     }
   });
-
+  const windowSize = useResize();
   const rowVirtualizer = useVirtual({
     overscan: 10,
     size: messages.length,
     parentRef: chatListRef,
-    estimateSize: React.useCallback(() => 20, []),
+    estimateSize: React.useCallback(() => windowSize.y * 0.2, [windowSize]),
   });
 
   const getBadgeIcon = (m: Message) => {
@@ -137,10 +138,8 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room, userMap }) => {
                           if (e.shiftKey && messages[index].userId !== me.id) {
                             setMessage(
                               message +
-                                (message.endsWith(" ") ? "" : " ") +
                                 "@" +
-                                messages[index].username +
-                                " "
+                                messages[index].username
                             );
                             document.getElementById("room-chat-input")?.focus();
 
@@ -168,15 +167,15 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room, userMap }) => {
                       >
                         {messages[index].username}
                       </button>
-                      <span className={`inline mr-1`}>: </span>
-                      <div className={`inline mr-1 space-x-1`}>
+                      <span className={`inline`}>: </span>
+                      <div className={`inline`}>
                         {messages[index].deleted ? (
                           <span className="inline text-primary-300 italic">
-                            message{" "}
+                            {t("modules.roomChat.messageDeletion.message") + ""}
                             {messages[index].deleterId ===
                             messages[index].userId
-                              ? "retracted"
-                              : "deleted"}
+                              ? t("modules.roomChat.messageDeletion.retracted")
+                              : t("modules.roomChat.messageDeletion.deleted")}
                           </span>
                         ) : (
                           messages[index].tokens.map(({ t: token, v }, i) => {
@@ -214,7 +213,8 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room, userMap }) => {
                                       }}
                                     >
                                       @{v}
-                                    </button>{" "}
+                                    </button>
+                                    {""}
                                   </React.Fragment>
                                 );
                               case "link":
@@ -227,7 +227,8 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room, userMap }) => {
                                       className={`inline flex-1 hover:underline text-accent`}
                                       key={i}
                                     >
-                                      {normalizeUrl(v, { stripProtocol: true })}{" "}
+                                      {normalizeUrl(v, { stripProtocol: true })}
+                                      {""}
                                     </a>
                                   );
                                 } catch {
@@ -242,9 +243,14 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room, userMap }) => {
                                       }
                                     >
                                       {v}
-                                    </span>{" "}
+                                    </span>
+                                    {""}
                                   </React.Fragment>
                                 );
+                              case "emoji":
+                                return <>
+                                <ParseTextToTwemoji text={v}></ParseTextToTwemoji>
+                                </>;
                               default:
                                 return null;
                             }

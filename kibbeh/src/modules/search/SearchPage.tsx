@@ -4,7 +4,8 @@ import React, { useState } from "react";
 import { useWrappedConn } from "../../shared-hooks/useConn";
 import { useScreenType } from "../../shared-hooks/useScreenType";
 import { PageComponent } from "../../types/PageComponent";
-import { PageHeader, SearchHeader } from "../../ui/mobile/MobileHeader";
+import { InfoText } from "../../ui/InfoText";
+import { SearchHeader } from "../../ui/mobile/MobileHeader";
 import {
   RoomSearchResult,
   UserSearchResult,
@@ -12,7 +13,6 @@ import {
 import { WaitForWsAndAuth } from "../auth/WaitForWsAndAuth";
 import { HeaderController } from "../display/HeaderController";
 import { DefaultDesktopLayout } from "../layouts/DefaultDesktopLayout";
-import { SearchBarController } from "./SearchBarController";
 
 interface LoungePageProps {}
 
@@ -20,9 +20,8 @@ export const SearchPage: PageComponent<LoungePageProps> = ({}) => {
   const screenType = useScreenType();
   if (screenType !== "fullscreen") router.push("/dash");
 
-  const [results, setResults] = useState({ items: [] } as {
-    items: (User | Room)[];
-  });
+  const [results, setResults] = useState([] as (User | Room)[]);
+  const [searchLoading, setSearchLoading] = useState(false);
   const conn = useWrappedConn();
 
   return (
@@ -33,43 +32,42 @@ export const SearchPage: PageComponent<LoungePageProps> = ({}) => {
           <SearchHeader
             onSearchChange={(e) => {
               console.log(e.target.value);
-              conn.query.search(e.target.value).then((r) => setResults(r));
+              setSearchLoading(true);
+              conn.query.search(e.target.value).then((r) => {
+                setResults(r?.items);
+                setSearchLoading(false);
+              });
             }}
             searchPlaceholder="Search"
             onBackClick={() => router.back()}
+            searchLoading={searchLoading}
           />
         }
       >
         <div className="h-full w-full">
           {results &&
-            results.items.map((el, i) => {
-              if ("username" in el) {
+            results.map((userOrRoom, i) => {
+              if ("username" in userOrRoom) {
                 return (
                   <UserSearchResult
-                    onClick={() => router.push(`/u/${el.username}`)}
+                    onClick={() => router.push(`/u/${userOrRoom.username}`)}
                     key={i}
-                    user={{
-                      username: el.username,
-                      displayName: el.displayName,
-                      isOnline: el.online,
-                      avatar: el.avatarUrl,
-                    }}
+                    user={userOrRoom}
                   />
                 );
               } else {
                 return (
                   <RoomSearchResult
-                    onClick={() => router.push(`/room/${el.id}`)}
+                    onClick={() => router.push(`/room/${userOrRoom.id}`)}
                     key={i}
-                    room={{
-                      displayName: el.name,
-                      userCount: el.numPeopleInside,
-                      hosts: el.peoplePreviewList,
-                    }}
+                    room={userOrRoom}
                   />
                 );
               }
             })}
+          {!results?.length && (
+            <InfoText className="pr-4 pl-5 py-3">no results</InfoText>
+          )}
         </div>
       </DefaultDesktopLayout>
     </WaitForWsAndAuth>

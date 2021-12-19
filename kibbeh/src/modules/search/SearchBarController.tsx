@@ -33,7 +33,7 @@ export const SearchBarController: React.FC<SearchControllerProps> = ({}) => {
     enabled = true;
   }
 
-  const { data } = useTypeSafeQuery(
+  const { data, isLoading } = useTypeSafeQuery(
     ["search", text],
     {
       enabled,
@@ -57,7 +57,7 @@ export const SearchBarController: React.FC<SearchControllerProps> = ({}) => {
         push(`/room/[id]`, `/room/${selection.id}`);
       }}
       onInputValueChange={(v) => {
-        if(visible) {
+        if (visible) {
           setText(v);
         }
       }}
@@ -90,6 +90,7 @@ export const SearchBarController: React.FC<SearchControllerProps> = ({}) => {
                 ? t("components.search.placeholderShort")
                 : t("components.search.placeholder")
             }
+            isLoading={isLoading}
           />
           {isOpen ? (
             <SearchOverlay
@@ -99,7 +100,8 @@ export const SearchBarController: React.FC<SearchControllerProps> = ({}) => {
                 className="w-full px-2 mb-2 mt-7 bg-primary-800 rounded-b-8 overflow-y-auto"
                 {...getMenuProps({ style: { top: 0 } })}
               >
-                {data?.rooms.length === 0 && data?.users.length === 0 ? (
+                {(data?.rooms.length === 0 && data?.users.length === 0) ||
+                !data ? (
                   <InfoText className="p-3">no results</InfoText>
                 ) : null}
 
@@ -115,12 +117,7 @@ export const SearchBarController: React.FC<SearchControllerProps> = ({}) => {
                       })}
                     >
                       <UserSearchResult
-                        user={{
-                          username: item.username,
-                          displayName: item.displayName,
-                          isOnline: item.online,
-                          avatar: item.avatarUrl,
-                        }}
+                        user={item}
                         className={
                           highlightedIndex === index
                             ? "bg-primary-700"
@@ -137,11 +134,7 @@ export const SearchBarController: React.FC<SearchControllerProps> = ({}) => {
                       })}
                     >
                       <RoomSearchResult
-                        room={{
-                          displayName: item.name,
-                          hosts: item.peoplePreviewList,
-                          userCount: item.numPeopleInside,
-                        }}
+                        room={item}
                         className={
                           highlightedIndex === index
                             ? "bg-primary-700"

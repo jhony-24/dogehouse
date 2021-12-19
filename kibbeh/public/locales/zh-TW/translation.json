@@ -15,7 +15,9 @@
     "copied": "已複製",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "請注意，在沒有存取權限下DogeHouse可能會出現運作異常"
+    "requestPermissions": "請注意，在沒有存取權限下DogeHouse可能會出現運作異常",
+    "copy": "Copy",
+    "error": "Error"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -33,13 +35,30 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "禁言" },
+    "admin": {
+      "ban": "禁言",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "你追蹤的且不在私人房間內的使用者",
       "currentRoom": "目前的房間:",
-      "startPrivateRoom": "開啟私人房間"
+      "startPrivateRoom": "開啟私人房間",
+      "title": "People"
     },
-    "followList": { "followHim": "追蹤", "followingHim": "已追蹤" },
+    "followList": {
+      "followHim": "追蹤",
+      "followingHim": "已追蹤",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "新增房間",
       "refresh": "重新整理",
@@ -72,7 +91,8 @@
       "soundSettings": "聲音設定",
       "deleteAccount": "刪除帳號",
       "overlaySettings": "介面設定",
-      "couldNotFindUser": "很抱歉，我們找不到這名用戶"
+      "couldNotFindUser": "很抱歉，我們找不到這名用戶",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "噢！這一頁不見了‧",
@@ -87,7 +107,11 @@
       "allowAllConfirm": "你確定嗎? 這將會允許所有 {{count}} 發出請求的用戶發言"
     },
     "searchUser": { "search": "搜尋..." },
-    "soundEffectSettings": { "header": "聲音", "title": "聲音設定" },
+    "soundEffectSettings": {
+      "header": "聲音",
+      "title": "聲音設定",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "編輯個人主頁",
       "followsYou": "正在追蹤你",
@@ -99,14 +123,31 @@
       "urlCopied": "連結已被複製簿被",
       "unfollow": "取消追蹤",
       "about": "關於",
-      "bot": "Bot"
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips",
+        "admin": "Admin"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
+      "aboutSuffix": "",
+      "errors": {
+        "blocked": "This user has blocked you.",
+        "default": "Whoops! We couldn't load this user."
+      }
     },
     "voiceSettings": {
       "header": "語音設定",
       "mic": "麥克風:",
       "permissionError": "沒有找到麥克風，請確認有插入或者要允許本網站使用麥克風的權限‧",
       "refresh": "更新麥克風列表",
-      "volume": "音量:"
+      "volume": "音量:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": { "errorMsg": "無效的 app 標題 ", "label": "輸入 App 標題" },
@@ -119,6 +160,19 @@
       "prompt": "點擊以下按鈕開始下載",
       "download_now": "現在就下載",
       "download_for": "Download for %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
+    },
+    "botEdit": {
+      "yourBots": "Your Bots",
+      "bots": "Bots",
+      "title": "Bot Information",
+      "apiKey": "ApiKey",
+      "regenerate": "Regenerate",
+      "reveal": "Click to reveal ApiKey"
     }
   },
   "components": {
@@ -214,14 +268,28 @@
         "goBackToListener": "回到聽眾",
         "deleteMessage": "删除此訊息",
         "makeRoomCreator": "設定為房間主人",
-        "unBanFromChat": "解禁用戶使用文字聊天"
+        "unBanFromChat": "解禁用戶使用文字聊天",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "需要許可才能發言",
         "makePublic": "把房間設定為公開",
         "makePrivate": "把房間設定為私人",
         "renamePublic": "重設公開房間名字",
-        "renamePrivate": "重設私人房間名字"
+        "renamePrivate": "重設私人房間名字",
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
+      },
+      "createBotModal": {
+        "usernameTaken": "Username is taken",
+        "subtitle": "Please fill the details below to create your bot",
+        "title": "Create Bot"
       }
     },
     "followingOnline": {
@@ -245,7 +313,17 @@
       "useOldVersion": "使用舊版本",
       "logOut": { "button": "登出", "modalSubtitle": "你確定要登出嗎？" },
       "debugAudio": { "debugAudio": "除錯音頻", "stopDebugger": "停止除錯" },
-      "downloadApp": "Download App"
+      "downloadApp": "Download App",
+      "developer": "Developer Settings"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -278,7 +356,13 @@
       "sendMessage": "發送訊息",
       "whisper": "密語",
       "welcomeMessage": "歡迎來到房間!",
-      "roomDescription": "房間簡介"
+      "roomDescription": "房間簡介",
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "火箭正在加油",

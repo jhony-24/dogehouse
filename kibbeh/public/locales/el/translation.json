@@ -16,7 +16,9 @@
     "copied": "Αντιγράφτηκε",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Λάβετε υπόψη ότι το να τρέχετε το DogeHouse χωρίς δικαιώματα προσβασιμότητας μπορεί να προκαλέσει ανεπιθύμητα σφάλματα"
+    "requestPermissions": "Λάβετε υπόψη ότι το να τρέχετε το DogeHouse χωρίς δικαιώματα προσβασιμότητας μπορεί να προκαλέσει ανεπιθύμητα σφάλματα",
+    "copy": "Copy",
+    "error": "Error"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -34,11 +36,22 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "Αποκλεισμός" },
+    "admin": {
+      "ban": "Αποκλεισμός",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "Xρήστες που ακολουθείτε και δεν βρίσκονται σε κάποιο δωμάτιο",
       "currentRoom": "Aυτή τη στιγμή βρίσκεστε σε:",
-      "startPrivateRoom": "Δημιουργήστε ένα ιδιωτικό δωμάτιο μαζί τους"
+      "startPrivateRoom": "Δημιουργήστε ένα ιδιωτικό δωμάτιο μαζί τους",
+      "title": "People"
     },
     "download": {
       "starting": "Εκίνηση κατεβάσματως...",
@@ -51,7 +64,10 @@
     "followList": {
       "followHim": "Ακολουθήστε",
       "ακολουθήστε": "Ακολουθείτε",
-      "followingHim": "Ακολουθείτε"
+      "followingHim": "Ακολουθείτε",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
     },
     "home": {
       "createRoom": "Δημιουργία δωματίου",
@@ -85,7 +101,8 @@
       "soundSettings": "Ρυθμίσεις ήχου",
       "deleteAccount": "Διαγραφή λογαριασμού",
       "overlaySettings": "Πηγαιντε στις ρυθμίσεις του overlay",
-      "couldNotFindUser": "Συγγνώμη, αυτός ο χρήστης δεν υπάρχει"
+      "couldNotFindUser": "Συγγνώμη, αυτός ο χρήστης δεν υπάρχει",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Ουπς! Αυτή η σελίδα χάθηκε στη συζήτηση.",
@@ -100,7 +117,11 @@
       "allowAllConfirm": "Είστε σίγουροι; Αυτό θα επιτρέψει σε όλους τους {{count}} χρήστες που έχουν ζητήσει, να μιλήσουν"
     },
     "searchUser": { "search": "αναζήτηση..." },
-    "soundEffectSettings": { "header": "Ήχοι", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Ήχοι",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "Επεξεργασία προφίλ",
       "followsYou": "Σας ακολουθεί",
@@ -112,14 +133,31 @@
       "urlCopied": "Ο συνδεσμος αντιγράφθηκε στο πρόχειρο",
       "unfollow": "Ξε-ακολουθήστε",
       "about": "Βιογραφικό",
-      "bot": "Ρομπότ"
+      "bot": "Ρομπότ",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips",
+        "admin": "Admin"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
+      "aboutSuffix": "",
+      "errors": {
+        "blocked": "This user has blocked you.",
+        "default": "Whoops! We couldn't load this user."
+      }
     },
     "voiceSettings": {
       "header": "Ρυθμίσεις Φωνής",
       "mic": "Μικρόφωνο:",
       "permissionError": "Δεν βρέθηκε μικρόφωνο, είτε δεν έχετε κανένα συνδεδεμένο είτε δεν έχετε δώσει άδεια.",
       "refresh": "Ανανέωση λίστας μικροφώνων",
-      "volume": "Ένταση ήχου:"
+      "volume": "Ένταση ήχου:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "input": {
@@ -127,6 +165,19 @@
         "label": "Εισάγετε τον τίτλο της εφαρμογής"
       },
       "header": "Ρυθμίσεις overlay"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
+    },
+    "botEdit": {
+      "yourBots": "Your Bots",
+      "bots": "Bots",
+      "title": "Bot Information",
+      "apiKey": "ApiKey",
+      "regenerate": "Regenerate",
+      "reveal": "Click to reveal ApiKey"
     }
   },
   "components": {
@@ -227,14 +278,28 @@
         "goBackToListener": "Επιστροφή σε ακροατή",
         "deleteMessage": "Διαγράψτε αυτό το μήνυμα",
         "makeRoomCreator": "Μετατροπή σε διαχειριστή δωματίου",
-        "unBanFromChat": "Κατάργηση αποκλεισμού από την συζήτηση"
+        "unBanFromChat": "Κατάργηση αποκλεισμού από την συζήτηση",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "Να απαιτείται άδεια για ομιλία",
         "makePublic": "Κάντε το δωμάτιο δημόσιο",
         "makePrivate": "Κάντε το δωμάτιο ιδιωτικό",
         "renamePublic": "Ορίστε ένα όνομα για το δημόσιο δωμάτιο",
-        "renamePrivate": "Ορίστε ένα όνομα για το ιδιωτικό δωμάτιο"
+        "renamePrivate": "Ορίστε ένα όνομα για το ιδιωτικό δωμάτιο",
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
+      },
+      "createBotModal": {
+        "usernameTaken": "Username is taken",
+        "subtitle": "Please fill the details below to create your bot",
+        "title": "Create Bot"
       }
     },
     "followingOnline": {
@@ -264,7 +329,17 @@
         "debugAudio": "Κάντε debug τον ήχο",
         "stopDebugger": "Σταματήστε το Debugger"
       },
-      "downloadApp": "Download App"
+      "downloadApp": "Download App",
+      "developer": "Developer Settings"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -299,7 +374,13 @@
       "sendMessage": "Στείλτε ένα Μήνυμα",
       "whisper": "Ψίθυρος",
       "welcomeMessage": "Καλως ήλθατε στο Τσάτ!",
-      "roomDescription": "Περιγραφή δωματίου"
+      "roomDescription": "Περιγραφή δωματίου",
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Ανεφοδιασμός πυραύλου",

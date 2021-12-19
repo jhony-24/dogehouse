@@ -16,7 +16,9 @@
     "copied": "kopirano",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Molimo Vas da upamtite da bi korištenje DogeHouse-a bez dozvola za pristupačnost moglo uzrokovati neke neželjene greške"
+    "requestPermissions": "Molimo Vas da upamtite da bi korištenje DogeHouse-a bez dozvola za pristupačnost moglo uzrokovati neke neželjene greške",
+    "copy": "Copy",
+    "error": "Error"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -34,13 +36,30 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization String",
-    "banUser": { "ban": "zabrani" },
+    "admin": {
+      "ban": "zabrani",
+      "userStaffandContrib": "User Staff & Contributions",
+      "staff": "Staff: ",
+      "contributions": "Contributions",
+      "username": "Username",
+      "usrStaff": "User Staff",
+      "usrContributions": "User Contributions",
+      "reason": "reason",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "Popis korisnika koji nisu u privatnoj sobi, a vi ih pratite",
       "currentRoom": "trenutno u:",
-      "startPrivateRoom": "započnite privatnu sobu s njima"
+      "startPrivateRoom": "započnite privatnu sobu s njima",
+      "title": "People"
     },
-    "followList": { "followHim": "zaprati", "followingHim": "pratitelji" },
+    "followList": {
+      "followHim": "zaprati",
+      "followingHim": "pratitelji",
+      "title": "People",
+      "followingNone": "Not following anyone",
+      "noFollowers": "No followers"
+    },
     "home": {
       "createRoom": "Stvori sobu",
       "refresh": "Osvježi",
@@ -73,7 +92,8 @@
       "soundSettings": "idite na postavke zvuka",
       "deleteAccount": "izbriši račun",
       "overlaySettings": "idi na postavke prekrivača",
-      "couldNotFindUser": "Oprostite, nismo mogli pronači tog korisnika"
+      "couldNotFindUser": "Oprostite, nismo mogli pronači tog korisnika",
+      "privacySettings": "Privacy settings"
     },
     "notFound": {
       "whoopsError": "Ups! Ova se stranica izgubila u razgovoru.",
@@ -89,7 +109,11 @@
       "speakers": "Govornici"
     },
     "searchUser": { "search": "traži..." },
-    "soundEffectSettings": { "header": "Zvuči", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Zvuči",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "uredi profil",
       "followYou": "vas prati",
@@ -102,14 +126,31 @@
       "urlCopied": "URL kopiran u međuspremnik",
       "unfollow": "Prestani pratiti",
       "about": "O",
-      "bot": "Robot"
+      "bot": "Robot",
+      "profileTabs": {
+        "about": "About",
+        "rooms": "Rooms",
+        "scheduled": "Scheduled",
+        "recorded": "Recorded",
+        "clips": "Clips",
+        "admin": "Admin"
+      },
+      "block": "Block",
+      "unblock": "Unblock",
+      "sendDM": "Send DM",
+      "aboutSuffix": "",
+      "errors": {
+        "blocked": "This user has blocked you.",
+        "default": "Whoops! We couldn't load this user."
+      }
     },
     "voiceSettings": {
       "header": "Postavke glasa",
       "mic": "mikrofon:",
       "permissionError": "nisu pronađeni mikrofoni, ili ih nitko nije priključio ili niste dali dopuštenje ovom web mjestu.",
       "refresh": "osvježi popis mikrofona",
-      "volume": "jačina zvuka:"
+      "volume": "jačina zvuka:",
+      "title": "Voice Settings"
     },
     "overlaySettings": {
       "header": "Postavke Prekrivača",
@@ -125,6 +166,19 @@
       "prompt": "Pritisnite na gumb kako biste započeli preuzimanje",
       "download_now": "Preuzmi Sada",
       "download_for": "Preuzmi za {{platform}}"
+    },
+    "privacySettings": {
+      "title": "Privacy Settings",
+      "header": "Privacy Settings",
+      "whispers": { "label": "Whispers", "on": "On", "off": "Off" }
+    },
+    "botEdit": {
+      "yourBots": "Your Bots",
+      "bots": "Bots",
+      "title": "Bot Information",
+      "apiKey": "ApiKey",
+      "regenerate": "Regenerate",
+      "reveal": "Click to reveal ApiKey"
     }
   },
   "components": {
@@ -222,14 +276,28 @@
         "goBackToListener": "vratite se na slušatelj",
         "deleteMessage": "izbriši ovu poruku",
         "makeRoomCreator": "napravi administratorom sobe",
-        "unBanFromChat": "Makni zabranu sa Chat-a"
+        "unBanFromChat": "Makni zabranu sa Chat-a",
+        "banIPFromRoom": "Ban IP from Room"
       },
       "roomSettingsModal": {
         "requirePermission": "zahtijeva dopuštenje za govor",
         "makePublic": "učini sobu javnom",
         "makePrivate": "učini sobu privatnom",
         "renamePublic": "Postavi ime javne sobe",
-        "renamePrivate": "Postavi ime privatne sobe"
+        "renamePrivate": "Postavi ime privatne sobe",
+        "chatDisabled": "disable chat",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Enabled",
+          "disabled": "Disabled",
+          "followerOnly": "Follower Only"
+        }
+      },
+      "createBotModal": {
+        "usernameTaken": "Username is taken",
+        "subtitle": "Please fill the details below to create your bot",
+        "title": "Create Bot"
       }
     },
     "followingOnline": {
@@ -259,7 +327,17 @@
         "debugAudio": "Debuggaj Audio",
         "stopDebugger": "Zaustavi Debugger"
       },
-      "downloadApp": "Download App"
+      "downloadApp": "Download App",
+      "developer": "Developer Settings"
+    },
+    "userBadges": {
+      "dhStaff": "DogeHouse Staff",
+      "dhContributor": "DogeHouse Contributor"
+    },
+    "messagesDropdown": {
+      "title": "Messages",
+      "showMore": "Show More",
+      "noMessages": "No new messages"
     }
   },
   "modules": {
@@ -294,7 +372,13 @@
       "sendMessage": "Pošalji poruku",
       "whisper": "Šaputanje",
       "welcomeMessage": "Dobrodošli u chat!",
-      "roomDescription": "opis sobe"
+      "roomDescription": "opis sobe",
+      "disabled": "room chat has been disabled",
+      "messageDeletion": {
+        "message": "message",
+        "retracted": "retracted",
+        "deleted": "deleted"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Raketa za punjenje gorivom",

@@ -1,15 +1,15 @@
 import { MessageToken, TextToken } from "..";
 
 /**
- * 
- * @param string The string you want to convert to TextTokens
- * @returns `TextToken[]`
+ *
+ * @param {string} string The string you want to convert to TextTokens
+ * @returns {TextToken} TextToken[]
  */
 export const stringToToken = (string: string): [TextToken] => [{ t: "text", v: string }];
 
 /**
- * @param tokens MessageTokens to be converted to string
- * @returns `string`
+ * @param {MessageToken[]} tokens MessageTokens to be converted to string
+ * @returns {string} string
  */
 export const tokensToString = (tokens: MessageToken[]): string => tokens
   .map(it => {
@@ -19,6 +19,7 @@ export const tokensToString = (tokens: MessageToken[]): string => tokens
       case "link": return it.v;
       case "emote": return `:${it.v}:`;
       case "block": return `\`${it.v}\``;
+      case "emoji": return it.v;
       default: return "";
     }
   })

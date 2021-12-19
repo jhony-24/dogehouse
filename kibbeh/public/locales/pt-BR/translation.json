@@ -16,7 +16,9 @@
     "copied": "copiado",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Esteja ciente que executar o DogeHouse sem as permissões corretas pode causar erros indesejados"
+    "requestPermissions": "Esteja ciente que executar o DogeHouse sem as permissões corretas pode causar erros indesejados",
+    "copy": "Copy",
+    "error": "Error"
   },
   "header": {
     "_comment": "Cabeçalho da interface principal para traduções",
@@ -24,7 +26,7 @@
     "mutedTitle": "Silenciado | DogeHouse",
     "deafenedTitle": "Deafened | DogeHouse",
     "dashboard": "Dashboard",
-    "connectionTaken": "Connection Taken"
+    "connectionTaken": "Conexão tomada"
   },
   "footer": {
     "link_1": "História da Origem",
@@ -33,13 +35,30 @@
   },
   "pages": {
     "_comment": "Interface respectiva da página para tradução",
-    "banUser": { "ban": "expulsar" },
+    "admin": {
+      "ban": "expulsar",
+      "userStaffandContrib": "Equipe do usuário & Contribuições",
+      "staff": "Equipe: ",
+      "contributions": "Contribuições",
+      "username": "Username",
+      "usrStaff": "Equipe do usuário",
+      "usrContributions": "Contribuições do usuário",
+      "reason": "razão",
+      "usernamePlaceholder": "username to perform actions on"
+    },
     "followingOnlineList": {
       "listHeader": "Lista de usuários que você segue que não estão em uma sala privada.",
       "currentRoom": "atualmente em:",
-      "startPrivateRoom": "iniciar uma sala privada com ele"
+      "startPrivateRoom": "iniciar uma sala privada com ele",
+      "title": "Pessoas"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": {
+      "followHim": "seguir",
+      "followingHim": "seguindo",
+      "title": "Pessoas",
+      "followingNone": "Não seguindo ninguém",
+      "noFollowers": "Sem seguidores"
+    },
     "home": {
       "createRoom": "Criar Sala",
       "refresh": "Atualizar",
@@ -72,7 +91,8 @@
       "soundSettings": "ir para configurações de áudio",
       "deleteAccount": "excluir conta",
       "overlaySettings": "vá para as configurações de sobreposição",
-      "couldNotFindUser": "Desculpa, não foi possível encontrar esse usuário"
+      "couldNotFindUser": "Desculpa, não foi possível encontrar esse usuário",
+      "privacySettings": "Configurações de Privacidades"
     },
     "notFound": {
       "whoopsError": "Ops! Essa página se perdeu na conversa.",
@@ -86,10 +106,13 @@
       "allowAll": "Permitir todos",
       "allowAllConfirm": "Você tem certeza? Isso permitirá que todos os {{count}} usuários solicitantes falem"
     },
-    "searchUser": { "search": "buscar..." },
+    "searchUser": {
+      "search": "buscar..."
+    },
     "soundEffectSettings": {
       "header": "Sons",
-      "title": "Configurações de áudio"
+      "title": "Configurações de áudio",
+      "playSound": "Tocar som"
     },
     "viewUser": {
       "editProfile": "editar perfil",
@@ -101,15 +124,32 @@
       "followingHim": "seguindo",
       "copyProfileUrl": "copiar url do perfil",
       "urlCopied": "URL copiado para a área de transferência",
-      "about": "About",
-      "bot": "Bot"
+      "about": "Sobre",
+      "bot": "Bot",
+      "profileTabs": {
+        "about": "Sobre",
+        "rooms": "Salas",
+        "scheduled": "Agendado",
+        "recorded": "Gravado",
+        "clips": "Clips",
+        "admin": "Admin"
+      },
+      "block": "Bloquear",
+      "unblock": "Desbloquear",
+      "sendDM": "Enviar DM",
+      "aboutSuffix": "",
+      "errors": {
+        "blocked": "This user has blocked you.",
+        "default": "Whoops! We couldn't load this user."
+      }
     },
     "voiceSettings": {
       "header": "Configurações do microfone",
       "mic": "microfone:",
       "permissionError": "não foram encontrados microfones, você não conectou um ou você não deu permissão para este website.",
       "refresh": "recarregar lista de microfones",
-      "volume": "volume:"
+      "volume": "volume:",
+      "title": "Configurações de voz"
     },
     "overlaySettings": {
       "input": {
@@ -125,6 +165,23 @@
       "prompt": "Clique no botão abaixo para começar a baixar",
       "download_now": "Baixe agora",
       "download_for": "Baixe para %platform% (%ext%)"
+    },
+    "privacySettings": {
+      "title": "Configurações de Privacidade",
+      "header": "Configurações de Privacidade",
+      "whispers": {
+        "label": "Sussurros",
+        "on": "On",
+        "off": "Off"
+      }
+    },
+    "botEdit": {
+      "yourBots": "Your Bots",
+      "bots": "Bots",
+      "title": "Bot Information",
+      "apiKey": "ApiKey",
+      "regenerate": "Regenerate",
+      "reveal": "Click to reveal ApiKey"
     }
   },
   "components": {
@@ -200,18 +257,36 @@
         "goBackToListener": "voltar para ouvinte",
         "deleteMessage": "excluir essa mensagem",
         "makeRoomCreator": "criar sala de administração",
-        "unBanFromChat": "Desbanir do chat"
+        "unBanFromChat": "Desbanir do chat",
+        "banIPFromRoom": "Banir IP da Sala"
       },
       "roomSettingsModal": {
         "requirePermission": "precisar de permissão para falar",
         "makePublic": "fazer a sala pública",
         "makePrivate": "fazer a sala privada",
         "renamePublic": "Definir nome da sala pública",
-        "renamePrivate": "Definir nome da sala privada"
+        "renamePrivate": "Definir nome da sala privada",
+        "chatDisabled": "Chat desabilitado",
+        "chatCooldown": "Chat Cooldown (milliseconds)",
+        "chat": {
+          "label": "Chat",
+          "enabled": "Ativado",
+          "disabled": "Desativado",
+          "followerOnly": "Somente seguidores"
+        }
+      },
+      "createBotModal": {
+        "usernameTaken": "Username is taken",
+        "subtitle": "Please fill the details below to create your bot",
+        "title": "Create Bot"
       }
     },
-    "userVolumeSlider": { "noAudioMessage": "não tem áudio por algum motivo" },
-    "addToCalendar": { "add": "Adicionar ao Calendário" },
+    "userVolumeSlider": {
+      "noAudioMessage": "não tem áudio por algum motivo"
+    },
+    "addToCalendar": {
+      "add": "Adicionar ao Calendário"
+    },
     "keyboardShortcuts": {
       "setKeybind": "definir atalho no teclado",
       "listening": "ouvindo",
@@ -234,10 +309,10 @@
       "inviteToRoom": "convidar para sala"
     },
     "followingOnline": {
-      "people": "People",
+      "people": "Pessoas",
       "online": "ONLINE",
-      "noOnline": "You have 0 friends online right now",
-      "showMore": "Show more"
+      "noOnline": "Você tem 0 amigos online agora",
+      "showMore": "Mostrar mais"
     },
     "upcomingRoomsCard": {
       "upcomingRooms": "Próximas salas",
@@ -260,7 +335,17 @@
         "debugAudio": "Debugar áudio",
         "stopDebugger": "Parar debug"
       },
-      "downloadApp": "Download App"
+      "downloadApp": "Download App",
+      "developer": "Developer Settings"
+    },
+    "userBadges": {
+      "dhStaff": "Equipe do DogeHouse",
+      "dhContributor": "Contribuidores do DogeHouse"
+    },
+    "messagesDropdown": {
+      "title": "Mensagem",
+      "showMore": "Mostrar mais",
+      "noMessages": "Não existem novas mensagens"
     }
   },
   "modules": {
@@ -294,7 +379,13 @@
       "sendMessage": "Envie uma mensagem",
       "whisper": "Sussurrar",
       "welcomeMessage": "Bem vindo ao chat!",
-      "roomDescription": "descrição da sala"
+      "roomDescription": "descrição da sala",
+      "disabled": "O chat da sala foi desabilitado",
+      "messageDeletion": {
+        "message": "mensagem",
+        "retracted": "retraído",
+        "deleted": "deletado"
+      }
     },
     "roomStatus": {
       "fuelingRocket": "Abastecendo foguete",
@@ -308,6 +399,8 @@
       "galacticDoge": "Doge galático",
       "spottedLife": "Encontrado planeta com vida"
     },
-    "feed": { "yourFeed": "Seu Feed" }
+    "feed": {
+      "yourFeed": "Seu Feed"
+    }
   }
 }
